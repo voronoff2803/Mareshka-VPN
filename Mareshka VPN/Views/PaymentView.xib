@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Rounded-Medium.otf">
+            <string>SFProRounded-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaymentView">
+            <connections>
+                <outlet property="descriptionLabel" destination="qgq-sQ-QQr" id="oa2-WY-5bb"/>
+                <outlet property="iconImage" destination="3em-vz-G1o" id="YRX-zr-aub"/>
+                <outlet property="titleLabel" destination="Bia-rs-M3g" id="TSa-Qy-GRu"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="342" height="64"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Fm-f3-6tu">
+                    <rect key="frame" x="0.0" y="0.0" width="342" height="64"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gv-kT-Jvw" customClass="MButton" customModule="Mareshka_VPN" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="342" height="64"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.040000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="1" green="1" blue="1" alpha="0.17999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="12"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="buttonAction" destination="-1" eventType="touchUpInside" id="LbL-96-dW7"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="3em-vz-G1o" customClass="UIImageView">
+                            <rect key="frame" x="9" y="9" width="46" height="46"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="3em-vz-G1o" secondAttribute="height" multiplier="1:1" id="6Hy-VU-6h5"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Банковская карта" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bia-rs-M3g">
+                            <rect key="frame" x="65" y="10" width="162" height="24"/>
+                            <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="20"/>
+                            <color key="textColor" name="ColorLabel"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Мир, Visa, MasterCard, Union Pay " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgq-sQ-QQr">
+                            <rect key="frame" x="65" y="35" width="193.5" height="16"/>
+                            <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="13"/>
+                            <color key="textColor" name="ColorLabel"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="3em-vz-G1o" secondAttribute="bottom" constant="9" id="0A7-hm-fG7"/>
+                        <constraint firstItem="3em-vz-G1o" firstAttribute="leading" secondItem="3Fm-f3-6tu" secondAttribute="leading" constant="9" id="5Je-4d-uQg"/>
+                        <constraint firstAttribute="bottom" secondItem="9gv-kT-Jvw" secondAttribute="bottom" id="6CJ-2j-OiZ"/>
+                        <constraint firstItem="qgq-sQ-QQr" firstAttribute="leading" secondItem="3em-vz-G1o" secondAttribute="trailing" constant="10" id="KxA-7M-Vmb"/>
+                        <constraint firstItem="Bia-rs-M3g" firstAttribute="top" secondItem="3Fm-f3-6tu" secondAttribute="top" constant="10" id="WWK-cF-zjv"/>
+                        <constraint firstItem="3em-vz-G1o" firstAttribute="top" secondItem="3Fm-f3-6tu" secondAttribute="top" constant="9" id="alk-yc-YPb"/>
+                        <constraint firstAttribute="height" constant="64" id="ao9-1G-S21"/>
+                        <constraint firstAttribute="trailing" secondItem="9gv-kT-Jvw" secondAttribute="trailing" id="fuX-3J-K4D"/>
+                        <constraint firstItem="9gv-kT-Jvw" firstAttribute="top" secondItem="3Fm-f3-6tu" secondAttribute="top" id="gSZ-36-MBH"/>
+                        <constraint firstItem="9gv-kT-Jvw" firstAttribute="leading" secondItem="3Fm-f3-6tu" secondAttribute="leading" id="j3G-jj-RI8"/>
+                        <constraint firstItem="qgq-sQ-QQr" firstAttribute="top" secondItem="Bia-rs-M3g" secondAttribute="bottom" constant="1" id="wTh-oH-mNy"/>
+                        <constraint firstItem="Bia-rs-M3g" firstAttribute="leading" secondItem="3em-vz-G1o" secondAttribute="trailing" constant="10" id="xq8-Cq-55b"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="3Fm-f3-6tu" secondAttribute="bottom" id="9nd-wT-jci"/>
+                <constraint firstItem="3Fm-f3-6tu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="AgS-Js-BG4"/>
+                <constraint firstItem="3Fm-f3-6tu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="eNI-90-owC"/>
+                <constraint firstAttribute="trailing" secondItem="3Fm-f3-6tu" secondAttribute="trailing" id="ocS-Zw-57g"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="137.68115942028987" y="-174.77678571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="ColorLabel">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

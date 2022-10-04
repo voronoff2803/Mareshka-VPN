@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Rounded-Bold.otf">
+            <string>SFProRounded-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BonusTariffView" customModule="Mareshka_VPN" customModuleProvider="target">
+            <connections>
+                <outlet property="button" destination="ETG-iu-oEo" id="ePc-rc-g3b"/>
+                <outlet property="priceLabel" destination="ReH-Eo-cX8" id="mwF-yQ-TPa"/>
+                <outlet property="progressLabel" destination="2MH-j1-0Bk" id="ozv-4u-gPR"/>
+                <outlet property="progressView" destination="dLh-Vs-2f7" id="mb8-WX-ccE"/>
+                <outlet property="titleLabel" destination="HRa-8N-Uip" id="iwn-Vc-bog"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="374" height="140"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pma-EO-fT4">
+                    <rect key="frame" x="0.0" y="0.0" width="374" height="124"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAI-Ta-CWA" customClass="MButton" customModule="Mareshka_VPN" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="124"/>
+                            <color key="backgroundColor" red="0.0" green="0.70980392160000005" blue="0.57647058819999997" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" name="ColorSecond"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="18"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Месяц" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRa-8N-Uip">
+                            <rect key="frame" x="49" y="17" width="69" height="21.5"/>
+                            <fontDescription key="fontDescription" name="SFProRounded-Bold" family="SF Pro Rounded" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SubIcon" translatesAutoresizingMaskIntoConstraints="NO" id="AqZ-1u-wpN">
+                            <rect key="frame" x="16" y="17" width="21" height="21"/>
+                            <color key="tintColor" name="ColorLabel"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99₽" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ReH-Eo-cX8">
+                            <rect key="frame" x="317" y="15.5" width="39" height="24"/>
+                            <fontDescription key="fontDescription" name="SFProRounded-Bold" family="SF Pro Rounded" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cPY-A1-RI8">
+                            <rect key="frame" x="18" y="64" width="338" height="44"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLh-Vs-2f7" customClass="LinearProgressBar" customModule="LinearProgressBar">
+                                    <rect key="frame" x="0.0" y="0.0" width="338" height="10"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="10" id="jwk-7o-n2N"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
+                                            <color key="value" red="0.066666666669999999" green="0.1529411765" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="progressValue">
+                                            <real key="value" value="50"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="capType">
+                                            <integer key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="trackPadding">
+                                            <real key="value" value="0.0"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="barPadding">
+                                            <real key="value" value="0.0"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="barColor">
+                                            <color key="value" name="ColorSecond"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETG-iu-oEo" customClass="LocalisableButton" customModule="Mareshka_VPN" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="10" width="338" height="34"/>
+                                    <color key="backgroundColor" name="ColorSecond"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="42" id="DvN-LA-kzX"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="SFProRounded-Bold" family="SF Pro Rounded" pointSize="18"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Получить"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" name="ColorTint"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="6"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="localisedKey" value="get"/>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="49₽ /" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MH-j1-0Bk">
+                            <rect key="frame" x="262.5" y="15.5" width="50.5" height="24"/>
+                            <fontDescription key="fontDescription" name="SFProRounded-Bold" family="SF Pro Rounded" pointSize="20"/>
+                            <color key="textColor" name="ColorSecond"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="nAI-Ta-CWA" secondAttribute="bottom" id="1eQ-jQ-e5E"/>
+                        <constraint firstItem="HRa-8N-Uip" firstAttribute="leading" secondItem="AqZ-1u-wpN" secondAttribute="trailing" constant="12" id="6fE-an-gxT"/>
+                        <constraint firstAttribute="trailing" secondItem="nAI-Ta-CWA" secondAttribute="trailing" id="BId-3E-BTu"/>
+                        <constraint firstItem="nAI-Ta-CWA" firstAttribute="leading" secondItem="pma-EO-fT4" secondAttribute="leading" id="BwY-Dl-2GM"/>
+                        <constraint firstItem="AqZ-1u-wpN" firstAttribute="leading" secondItem="pma-EO-fT4" secondAttribute="leading" constant="16" id="E4m-n6-7eI"/>
+                        <constraint firstAttribute="trailing" secondItem="ReH-Eo-cX8" secondAttribute="trailing" constant="18" id="ElZ-Ob-yUM"/>
+                        <constraint firstItem="HRa-8N-Uip" firstAttribute="centerY" secondItem="AqZ-1u-wpN" secondAttribute="centerY" id="K6m-vB-G5x"/>
+                        <constraint firstItem="cPY-A1-RI8" firstAttribute="leading" secondItem="pma-EO-fT4" secondAttribute="leading" constant="18" id="Ke0-cB-bLo"/>
+                        <constraint firstItem="cPY-A1-RI8" firstAttribute="top" secondItem="pma-EO-fT4" secondAttribute="top" constant="64" id="Pfq-5S-BWA"/>
+                        <constraint firstAttribute="bottom" secondItem="cPY-A1-RI8" secondAttribute="bottom" constant="16" id="Wcz-ud-gm7"/>
+                        <constraint firstItem="AqZ-1u-wpN" firstAttribute="top" secondItem="pma-EO-fT4" secondAttribute="top" constant="17" id="Xbn-Qa-IF8"/>
+                        <constraint firstItem="ReH-Eo-cX8" firstAttribute="centerY" secondItem="HRa-8N-Uip" secondAttribute="centerY" id="YT7-nQ-FDm"/>
+                        <constraint firstItem="2MH-j1-0Bk" firstAttribute="centerY" secondItem="ReH-Eo-cX8" secondAttribute="centerY" id="ZD4-pT-xpk"/>
+                        <constraint firstItem="ReH-Eo-cX8" firstAttribute="leading" secondItem="2MH-j1-0Bk" secondAttribute="trailing" constant="4" id="hzH-HA-CCp"/>
+                        <constraint firstItem="nAI-Ta-CWA" firstAttribute="top" secondItem="pma-EO-fT4" secondAttribute="top" id="lSY-en-Bp1"/>
+                        <constraint firstAttribute="trailing" secondItem="cPY-A1-RI8" secondAttribute="trailing" constant="18" id="shu-hR-4kk"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="pma-EO-fT4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5Iu-1a-E4i"/>
+                <constraint firstItem="pma-EO-fT4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="5YW-Ds-WLp"/>
+                <constraint firstItem="pma-EO-fT4" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="cjh-wN-4S2"/>
+                <constraint firstItem="pma-EO-fT4" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="xGP-LF-WCy"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="108.69565217391305" y="-169.41964285714286"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="SubIcon" width="21" height="21"/>
+        <namedColor name="ColorLabel">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ColorSecond">
+            <color red="0.0" green="0.70999997854232788" blue="0.57599997520446777" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ColorTint">
+            <color red="0.035000000149011612" green="0.59600001573562622" blue="0.83099997043609619" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
