@@ -41,7 +41,7 @@
 "earned" = "Earned";
 "endDate" = "Plan end date";
 "blockBypass" = "Safe&convenient";
-"currentPlan" = "current plan";
+"currentPlan" = "Current plan";
 "close" = "close";
 "privacyPolicy" = "Privacy policy";
 "restorePurchases" = "restore purchases";
@@ -111,3 +111,4 @@
 "splash12" = "I don't wear a tie on principle";
 "splash13" = "The show's over - intermission";
 "connectionError" = "Problems with connection! \n\n Please check your internet connection";
+"scanQR" = "Scan QR code";

@@ -82,7 +82,7 @@ public class SwiftLoader: UIView {
         if (loader.superview == nil) {
             loader.coverView = UIView(frame: currentWindow.bounds)
             loader.coverView?.backgroundColor = loader.config.foregroundColor.withAlphaComponent(loader.config.foregroundAlpha)
-            currentWindow.isUserInteractionEnabled = false
+            //currentWindow.isUserInteractionEnabled = false
             currentWindow.addSubview(loader.coverView!)
             currentWindow.addSubview(loader)
             loader.start()
@@ -97,7 +97,7 @@ public class SwiftLoader: UIView {
                 .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
                 .first { $0.isKeyWindow }
             
-            currentWindow?.isUserInteractionEnabled = true
+            //currentWindow?.isUserInteractionEnabled = true
             NotificationCenter.default.removeObserver(SwiftLoader.shared)
             SwiftLoader.shared.stop()
         }

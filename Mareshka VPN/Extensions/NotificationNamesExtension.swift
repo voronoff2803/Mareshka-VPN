@@ -16,4 +16,8 @@ extension Notification.Name {
     static var selectedServerUpdate: Notification.Name {
         return .init(rawValue: "SelectedServerUpdate")
     }
+    
+    static var menuCellsUpdate: Notification.Name {
+        return .init(rawValue: "MenuCellsUpdate")
+    }
 }

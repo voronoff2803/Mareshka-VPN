@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D0AAE2328E1B52200DED0E7 /* GridMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0AAE2228E1B52200DED0E7 /* GridMenuView.swift */; };
-		0D0AAE2528E1B55200DED0E7 /* GridMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D0AAE2428E1B55200DED0E7 /* GridMenuView.xib */; };
 		0D10EDA828C51AD700CCC428 /* RefreshTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D10EDA728C51AD700CCC428 /* RefreshTokenRequest.swift */; };
 		0D10EDAA28C51AEF00CCC428 /* RefreshToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D10EDA928C51AEF00CCC428 /* RefreshToken.swift */; };
 		0D10EDAC28C5343B00CCC428 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D10EDAB28C5343B00CCC428 /* AuthResponse.swift */; };
@@ -22,6 +20,8 @@
 		0D1E2D7D2863D453005966F0 /* AuthInBulletinPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E2D7C2863D453005966F0 /* AuthInBulletinPage.swift */; };
 		0D1E2D802863D4D1005966F0 /* BLTNBoard in Frameworks */ = {isa = PBXBuildFile; productRef = 0D1E2D7F2863D4D1005966F0 /* BLTNBoard */; };
 		0D1E2D822863D6C6005966F0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E2D812863D6C6005966F0 /* ProfileViewController.swift */; };
+		0D5E66C628ECAE4F0094C949 /* BeautifulGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5E66C528ECAE4F0094C949 /* BeautifulGridLayout.swift */; };
+		0D5E66C828EDEEE60094C949 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5E66C728EDEEE60094C949 /* MenuCollectionViewCell.swift */; };
 		0D78D94328B94DAD0027EF53 /* AnyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D78D87428B94DAD0027EF53 /* AnyCodable.swift */; };
 		0D78D94428B94DAD0027EF53 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D78D87528B94DAD0027EF53 /* APIRequest.swift */; };
 		0D78D94528B94DAD0027EF53 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D78D87628B94DAD0027EF53 /* APIClient.swift */; };
@@ -230,8 +230,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0D0AAE2228E1B52200DED0E7 /* GridMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridMenuView.swift; sourceTree = "<group>"; };
-		0D0AAE2428E1B55200DED0E7 /* GridMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GridMenuView.xib; sourceTree = "<group>"; };
 		0D10EDA728C51AD700CCC428 /* RefreshTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshTokenRequest.swift; sourceTree = "<group>"; };
 		0D10EDA928C51AEF00CCC428 /* RefreshToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshToken.swift; sourceTree = "<group>"; };
 		0D10EDAB28C5343B00CCC428 /* AuthResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
@@ -242,6 +240,8 @@
 		0D1E2D762863D23E005966F0 /* SwiftLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftLoader.swift; sourceTree = "<group>"; };
 		0D1E2D7C2863D453005966F0 /* AuthInBulletinPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthInBulletinPage.swift; sourceTree = "<group>"; };
 		0D1E2D812863D6C6005966F0 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		0D5E66C528ECAE4F0094C949 /* BeautifulGridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeautifulGridLayout.swift; sourceTree = "<group>"; };
+		0D5E66C728EDEEE60094C949 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		0D78D87428B94DAD0027EF53 /* AnyCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyCodable.swift; sourceTree = "<group>"; };
 		0D78D87528B94DAD0027EF53 /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		0D78D87628B94DAD0027EF53 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -508,6 +508,7 @@
 			children = (
 				0DC280992881F7390059E33E /* MButton.swift */,
 				0D1E2D7C2863D453005966F0 /* AuthInBulletinPage.swift */,
+				0D5E66C728EDEEE60094C949 /* MenuCollectionViewCell.swift */,
 				0DFF3905287B719E00CFBB11 /* CreateTicketBulletinPage.swift */,
 				0D8A083928A2DD4E00D159C4 /* PaymentSelectBulletinPage.swift */,
 				0D78DA2328C0088B0027EF53 /* GradientView.swift */,
@@ -523,8 +524,6 @@
 				0DFF372328798A2C00CFBB11 /* BonusTariffView.swift */,
 				0DC5C68A28A2CB6200A7BCA3 /* TariffView.swift */,
 				0D8A083B28A3017900D159C4 /* PaymentView.swift */,
-				0D0AAE2228E1B52200DED0E7 /* GridMenuView.swift */,
-				0D0AAE2428E1B55200DED0E7 /* GridMenuView.xib */,
 				0D8A083D28A3018700D159C4 /* PaymentView.xib */,
 				0DC5C68C28A2CB7100A7BCA3 /* TariffView.xib */,
 				0DFF372528798A5B00CFBB11 /* BonusTariffView.xib */,
@@ -855,6 +854,7 @@
 		0DC1B1FF285F972F00C7A7D5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0D5E66C528ECAE4F0094C949 /* BeautifulGridLayout.swift */,
 				0D78DA2128BFEEEC0027EF53 /* UILabel+change.swift */,
 				0D7B3F952868BEEE009F8AA8 /* InformationLayout.swift */,
 				0DFF372728798F6D00CFBB11 /* UIView+setupFromNib.swift */,
@@ -1016,7 +1016,6 @@
 				0DFF372628798A5B00CFBB11 /* BonusTariffView.xib in Resources */,
 				0DC1B1FC285F971800C7A7D5 /* SF-Pro-Rounded-Regular.otf in Resources */,
 				0D7952402886B0F100DF3103 /* Localizable.strings in Resources */,
-				0D0AAE2528E1B55200DED0E7 /* GridMenuView.xib in Resources */,
 				0DC1B1FE285F971800C7A7D5 /* SF-Pro-Rounded-Bold.otf in Resources */,
 				0DC1B1EE285F8BF000C7A7D5 /* Assets.xcassets in Resources */,
 				0DC1B1EC285F8BEF00C7A7D5 /* Main.storyboard in Resources */,
@@ -1110,7 +1109,6 @@
 				0D78D9D828B94DAD0027EF53 /* GetBonusTariffs1.swift in Sources */,
 				0D78D95028B94DAD0027EF53 /* PageResponseTicketDTO.swift in Sources */,
 				0D7B3F8828688669009F8AA8 /* ReferalViewController.swift in Sources */,
-				0D0AAE2328E1B52200DED0E7 /* GridMenuView.swift in Sources */,
 				0D78D9F128B94DAD0027EF53 /* RobokassaResult.swift in Sources */,
 				0D78D97F28B94DAD0027EF53 /* CreateFeatureTicketRequest.swift in Sources */,
 				0D78D9F328B94DAD0027EF53 /* GeneratePaymentUrl1.swift in Sources */,
@@ -1144,6 +1142,7 @@
 				0D78D95F28B94DAD0027EF53 /* UserTokenDTO.swift in Sources */,
 				0D78D9AC28B94DAD0027EF53 /* RemoveUserToken.swift in Sources */,
 				0D78D9EE28B94DAD0027EF53 /* GetRobokassaInvoiceId.swift in Sources */,
+				0D5E66C828EDEEE60094C949 /* MenuCollectionViewCell.swift in Sources */,
 				0D78D98828B94DAD0027EF53 /* CreateReviewRequest.swift in Sources */,
 				0DFF372828798F6D00CFBB11 /* UIView+setupFromNib.swift in Sources */,
 				0D78D9F428B94DAD0027EF53 /* APIResult.swift in Sources */,
@@ -1176,6 +1175,7 @@
 				0D7B3F8F28689136009F8AA8 /* LocalisableButton.swift in Sources */,
 				0D7B3F8328651E8C009F8AA8 /* CodeBulletinPage.swift in Sources */,
 				0D78D94B28B94DAD0027EF53 /* EditTicketRequest.swift in Sources */,
+				0D5E66C628ECAE4F0094C949 /* BeautifulGridLayout.swift in Sources */,
 				0D78D9A828B94DAD0027EF53 /* CreateWithdraw.swift in Sources */,
 				0D78D9CB28B94DAD0027EF53 /* AuthByEmail.swift in Sources */,
 				0D78D96928B94DAD0027EF53 /* WithdrawRequest.swift in Sources */,

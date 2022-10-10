@@ -23,18 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Messaging.messaging().delegate = self
         UNUserNotificationCenter.current().delegate = self
         
-    #if targetEnvironment(macCatalyst)
-        if let titlebar = window?.windowScene?.titlebar {
-        titlebar.titleVisibility = .hidden
-        titlebar.toolbar = nil
-            
-        UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.forEach { windowScene in
-            windowScene.sizeRestrictions?.minimumSize = CGSize(width: 400, height: 740)
-            windowScene.sizeRestrictions?.maximumSize = CGSize(width: 400, height: 740)
-        }
-    }
-    #endif
-        
         return true
     }
     

@@ -19,9 +19,19 @@ class ProfileViewController: RootViewController {
     @IBOutlet weak var expireDate: UILabel!
     @IBOutlet weak var expireDateSmall: UILabel!
     @IBOutlet weak var button: UIButton!
-//    @IBOutlet weak var referalButton: UIButton!
-//    @IBOutlet weak var subCancelButton: UIButton!
-//    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    lazy var menuCells = [
+        MenuCellModel(title: "scanQR".localized, icon: UIImage(named: "qrIcon")!, color: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), handler: {}),
+        MenuCellModel(title: "referal".localized, icon: UIImage(named: "refIcon")!, color: #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1), handler: {self.showReferal()}),
+        MenuCellModel(title: "subCancel".localized, icon: UIImage(named: "subCancelIcon")!, color: #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1), handler: {self.cancelSub()}),
+        MenuCellModel(title: "deleteAccount".localized, icon: UIImage(named: "trashBinIcon")!, color: #colorLiteral(red: 0.9568627451, green: 0.1882352941, blue: 0.1882352941, alpha: 1), handler: {self.deleteAcc()}),
+        MenuCellModel(title: "logout".localized, icon: UIImage(named: "exitIcon")!, color: #colorLiteral(red: 0.7725490196, green: 0.3725490196, blue: 0.8, alpha: 1), handler: {MatreshkaHelper.shared.logout()})
+    ]
+    
+    var filteredMenuCells: [MenuCellModel] {
+        menuCells.filter({$0.isEnabled})
+    }
     
     var state: ProfileState = .notAuthorized {
         didSet {
@@ -30,8 +40,11 @@ class ProfileViewController: RootViewController {
             self.button?.borderWidth = state == .authorized ? 2.0 : 0.0
             self.button?.tintColor = state == .authorized ? UIColor.systemRed : UIColor.white
             
-            button?.setTitle(state == .authorized ? "logout".localized : "auth".localized, for: .normal)
-            //deleteButton.isHidden = state == .authorized ? false : true
+            button?.isHidden = (state == .authorized)
+            
+            menuCells[4].isEnabled = (state == .authorized)
+            menuCells[3].isEnabled = (state == .authorized)
+            menuCells[0].isEnabled = (state == .authorized)
         }
     }
     
@@ -54,17 +67,34 @@ class ProfileViewController: RootViewController {
         
         setupUI()
         NotificationCenter.default.addObserver(self, selector:#selector(updateProfile), name: .userProfileUpdate, object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(updateMenuCells), name: .menuCellsUpdate, object: nil)
         
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        //referalButton.addTarget(self, action: #selector(showReferal), for: .touchUpInside)
         
-        //referalButton.isHidden = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         updateProfile()
+    }
+    
+    @objc func updateMenuCells() {
+        collectionView.reloadData()
+    }
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        view.layoutIfNeeded() // need to call before update collection view layout.
+        
+        var gridNumber = Int(self.collectionView.bounds.width) / 120
+
+        collectionView.adaptBeautifulGrid(numberOfGridsPerRow: gridNumber, gridLineSpace: 16.0)
     }
     
     @IBAction func cancelSub() {
@@ -93,7 +123,6 @@ class ProfileViewController: RootViewController {
         planLabel.text = ""
         expireDate.text = ""
         button.setTitle("auth".localized, for: .normal)
-        //referalButton.setTitle("referal".localized, for: .normal)
         profileLabelSmall.text = "profile".localized
         planSmall.text = "currentPlan".localized
         expireDateSmall.text = "endDate".localized
@@ -155,38 +184,38 @@ class ProfileViewController: RootViewController {
 
     
     @objc func updateProfile() {
-//        referalButton.isHidden = !(MatreshkaHelper.shared.systemGlobalConfig.enablePromos ?? false &&
-//                                   !MatreshkaHelper.shared.isAnonymousUser)
-//        if MatreshkaHelper.shared.isAnonymousUser {
-//            if let anonymousUser = MatreshkaHelper.shared.anonymousUser {
-//                profileLabel.text = "anon".localized
-//                expireDate.text = anonymousUser.createdAt?.adding(days: 3).toString()
-//                planLabel.text = "trial".localized
-//                state = .notAuthorized
-//                subCancelButton.isHidden = MatreshkaHelper.shared.isAnonymousUser ? true : false
-//            }
-//        } else if let user = MatreshkaHelper.shared.user {
-//            profileLabel.text = user.email
-//            state = .authorized
-//
-//            if let subscription = MatreshkaHelper.shared.subscription {
-//                expireDate.text = subscription.expiredAt?.toString()
-//                planLabel.text = subscription.name
-//                subCancelButton.isHidden = false
-//            } else {
-//                if MatreshkaHelper.shared.isSubscriptionActive() {
-//                    expireDate.text = user.createdAt?.adding(days: 3).toString()
-//                    planLabel.text = "trial".localized
-//                }
-//                subCancelButton.isHidden = true
-//                planLabel.text = "sub not found".localized
-//                expireDate.text = ""
-//            }
-//        } else {
-//            profileLabel.text = ""
-//            planLabel.text = ""
-//            expireDate.text = ""
-//        }
+        menuCells[1].isEnabled = (MatreshkaHelper.shared.systemGlobalConfig.enablePromos ?? false &&
+                                   !MatreshkaHelper.shared.isAnonymousUser)
+        if MatreshkaHelper.shared.isAnonymousUser {
+            if let anonymousUser = MatreshkaHelper.shared.anonymousUser {
+                profileLabel.text = "anon".localized
+                expireDate.text = anonymousUser.createdAt?.adding(days: 3).toString()
+                planLabel.text = "trial".localized
+                state = .notAuthorized
+                menuCells[2].isEnabled = MatreshkaHelper.shared.isAnonymousUser ? false : true
+            }
+        } else if let user = MatreshkaHelper.shared.user {
+            profileLabel.text = user.email
+            state = .authorized
+
+            if let subscription = MatreshkaHelper.shared.subscription {
+                expireDate.text = subscription.expiredAt?.toString()
+                planLabel.text = subscription.name
+                menuCells[2].isEnabled = true
+            } else {
+                if MatreshkaHelper.shared.isSubscriptionActive() {
+                    expireDate.text = user.createdAt?.adding(days: 3).toString()
+                    planLabel.text = "trial".localized
+                }
+                menuCells[2].isEnabled = false
+                planLabel.text = "sub not found".localized
+                expireDate.text = ""
+            }
+        } else {
+            profileLabel.text = ""
+            planLabel.text = ""
+            expireDate.text = ""
+        }
     }
     
     @objc func buttonAction() {
@@ -203,6 +232,7 @@ class ProfileViewController: RootViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self, name:  .userProfileUpdate, object: nil)
+        NotificationCenter.default.removeObserver(self, name:  .menuCellsUpdate, object: nil)
     }
 }
 
@@ -245,4 +275,36 @@ extension ProfileViewController: ASAuthorizationControllerDelegate {
 enum ProfileState {
     case authorized
     case notAuthorized
+}
+
+
+extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return filteredMenuCells.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MenuCollectionViewCell
+        let model = filteredMenuCells[indexPath.row]
+        cell.setup(model: model)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let model = filteredMenuCells[indexPath.row]
+        model.handler()
+    }
+}
+
+
+struct MenuCellModel {
+    var isEnabled: Bool = true {
+        didSet {
+            NotificationCenter.default.post(name: .menuCellsUpdate, object: nil)
+        }
+    }
+    let title: String
+    let icon: UIImage
+    let color: UIColor
+    let handler: () -> ()
 }

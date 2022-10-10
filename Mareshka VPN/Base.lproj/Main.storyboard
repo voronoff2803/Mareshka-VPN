@@ -196,50 +196,55 @@
                                     <action selector="supportAction" destination="zkB-dd-Uml" eventType="touchUpInside" id="aeu-Ib-IW6"/>
                                 </connections>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8M9-RB-o1U">
-                                <rect key="frame" x="20" y="485" width="374" height="235"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8M9-RB-o1U">
+                                <rect key="frame" x="0.0" y="485" width="414" height="328"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="231" id="ba5-Bc-VwS"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="ba5-Bc-VwS"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bbi-NH-5co">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bbi-NH-5co">
                                     <size key="itemSize" width="100" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hhx-Ar-SnB">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="hhx-Ar-SnB" customClass="MenuCollectionViewCell" customModule="Mareshka_VPN" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="0.0" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="u2V-bu-864">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gridMenuView" translatesAutoresizingMaskIntoConstraints="NO" id="0xF-BG-aOB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сканировать QR код" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFB-Gu-yVG">
+                                                    <rect key="frame" x="8" y="44.5" width="84" height="31.5"/>
+                                                    <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="13"/>
+                                                    <color key="textColor" name="ColorLabel"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrIcon" translatesAutoresizingMaskIntoConstraints="NO" id="2i9-pV-PZc">
+                                                    <rect key="frame" x="8" y="8" width="24" height="24"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="CFB-Gu-yVG" secondAttribute="trailing" constant="8" id="4br-sQ-1bf"/>
+                                                <constraint firstItem="2i9-pV-PZc" firstAttribute="leading" secondItem="u2V-bu-864" secondAttribute="leading" constant="8" id="R9O-tS-3KT"/>
+                                                <constraint firstItem="0xF-BG-aOB" firstAttribute="leading" secondItem="u2V-bu-864" secondAttribute="leading" id="VZE-4A-npL"/>
+                                                <constraint firstAttribute="bottom" secondItem="0xF-BG-aOB" secondAttribute="bottom" id="Xgv-Ko-TRT"/>
+                                                <constraint firstAttribute="trailing" secondItem="0xF-BG-aOB" secondAttribute="trailing" id="bXY-PS-wYo"/>
+                                                <constraint firstItem="2i9-pV-PZc" firstAttribute="top" secondItem="u2V-bu-864" secondAttribute="top" constant="8" id="dbD-8p-osP"/>
+                                                <constraint firstItem="CFB-Gu-yVG" firstAttribute="centerY" secondItem="0xF-BG-aOB" secondAttribute="centerY" constant="10" id="g4D-H2-AKg"/>
+                                                <constraint firstItem="0xF-BG-aOB" firstAttribute="top" secondItem="u2V-bu-864" secondAttribute="top" id="ssy-ND-Rog"/>
+                                                <constraint firstItem="CFB-Gu-yVG" firstAttribute="leading" secondItem="u2V-bu-864" secondAttribute="leading" constant="8" id="xol-0s-CmR"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="C1e-eg-iex">
-                                        <rect key="frame" x="137" y="0.0" width="100" height="100"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rWR-rI-Xkl">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="XBE-M5-EiL">
-                                        <rect key="frame" x="274" y="0.0" width="100" height="100"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="RTV-Ip-b7v">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rPr-dt-PrV">
-                                        <rect key="frame" x="0.0" y="110" width="100" height="100"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="93m-FY-HAf">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="iconImageView" destination="2i9-pV-PZc" id="NlC-3M-c3p"/>
+                                            <outlet property="titleLabel" destination="CFB-Gu-yVG" id="UNY-OV-by9"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -252,16 +257,16 @@
                             <constraint firstItem="8M9-RB-o1U" firstAttribute="top" secondItem="AFq-lx-0XJ" secondAttribute="bottom" constant="18" id="BNz-Dd-V3G"/>
                             <constraint firstItem="AFq-lx-0XJ" firstAttribute="leading" secondItem="5Qd-mx-E0f" secondAttribute="leading" constant="20" id="QoK-PY-slk"/>
                             <constraint firstItem="5Qd-mx-E0f" firstAttribute="trailing" secondItem="dE4-7Z-eNJ" secondAttribute="trailing" constant="20" id="W7s-8S-rqO"/>
-                            <constraint firstItem="5Qd-mx-E0f" firstAttribute="trailing" secondItem="8M9-RB-o1U" secondAttribute="trailing" constant="20" id="Yl5-Dz-nT3"/>
+                            <constraint firstItem="5Qd-mx-E0f" firstAttribute="trailing" secondItem="8M9-RB-o1U" secondAttribute="trailing" id="Yl5-Dz-nT3"/>
                             <constraint firstItem="dE4-7Z-eNJ" firstAttribute="centerY" secondItem="7Jb-Mz-E1f" secondAttribute="centerY" id="an3-e3-7T2"/>
                             <constraint firstItem="wsh-99-drC" firstAttribute="top" secondItem="BZ7-tO-TsP" secondAttribute="top" id="c4n-GP-zXx"/>
                             <constraint firstItem="7Jb-Mz-E1f" firstAttribute="top" secondItem="5Qd-mx-E0f" secondAttribute="top" constant="8" id="caG-6u-yG6"/>
                             <constraint firstItem="AFq-lx-0XJ" firstAttribute="top" secondItem="bUH-Ld-Kzz" secondAttribute="bottom" constant="10" id="gHx-oS-Lor"/>
-                            <constraint firstItem="AZN-qx-Mq2" firstAttribute="top" secondItem="8M9-RB-o1U" secondAttribute="bottom" constant="18" id="hmd-On-hyb"/>
+                            <constraint firstItem="5Qd-mx-E0f" firstAttribute="bottom" secondItem="8M9-RB-o1U" secondAttribute="bottom" id="hmd-On-hyb"/>
                             <constraint firstItem="wsh-99-drC" firstAttribute="leading" secondItem="5Qd-mx-E0f" secondAttribute="leading" id="isM-ni-1Wb"/>
                             <constraint firstItem="bUH-Ld-Kzz" firstAttribute="top" secondItem="7Jb-Mz-E1f" secondAttribute="bottom" constant="10" id="jYD-mr-BhO"/>
                             <constraint firstAttribute="bottom" secondItem="wsh-99-drC" secondAttribute="bottom" id="kam-dj-ELU"/>
-                            <constraint firstItem="8M9-RB-o1U" firstAttribute="leading" secondItem="5Qd-mx-E0f" secondAttribute="leading" constant="20" id="rr8-YV-25Z"/>
+                            <constraint firstItem="8M9-RB-o1U" firstAttribute="leading" secondItem="5Qd-mx-E0f" secondAttribute="leading" id="rr8-YV-25Z"/>
                             <constraint firstItem="AZN-qx-Mq2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="AFq-lx-0XJ" secondAttribute="bottom" constant="20" id="vRR-Gu-Tw8"/>
                             <constraint firstItem="5Qd-mx-E0f" firstAttribute="trailing" secondItem="AZN-qx-Mq2" secondAttribute="trailing" constant="20" id="yhh-e2-6un"/>
                             <constraint firstItem="5Qd-mx-E0f" firstAttribute="bottom" secondItem="AZN-qx-Mq2" secondAttribute="bottom" constant="20" id="zEc-1G-pgO"/>
@@ -273,6 +278,7 @@
                     <tabBarItem key="tabBarItem" title="Профиль" image="Profile" selectedImage="Profile_select" id="3ET-bE-DfP"/>
                     <connections>
                         <outlet property="button" destination="AZN-qx-Mq2" id="rlg-FS-z2q"/>
+                        <outlet property="collectionView" destination="8M9-RB-o1U" id="dRb-0z-f0r"/>
                         <outlet property="expireDate" destination="ipd-30-LzZ" id="gkl-xs-Obf"/>
                         <outlet property="expireDateSmall" destination="OnI-Us-ydH" id="ri2-YP-fxb"/>
                         <outlet property="planLabel" destination="XXg-Bo-9aB" id="dEJ-8J-9vj"/>
@@ -1751,6 +1757,7 @@
         <image name="card_dw" width="174" height="118"/>
         <image name="card_up" width="174" height="118"/>
         <image name="copyIcon" width="25" height="21"/>
+        <image name="gridMenuView" width="113" height="113"/>
         <image name="light" width="36" height="36"/>
         <image name="logo" width="163" height="27"/>
         <image name="logoSplash" width="48" height="80"/>
@@ -1758,6 +1765,7 @@
         <image name="planet" width="36" height="36"/>
         <image name="proboBG" width="369" height="146"/>
         <image name="profileBig" width="186" height="209"/>
+        <image name="qrIcon" width="24" height="24"/>
         <image name="questionIcon" width="27" height="27"/>
         <image name="servicesImage" width="292" height="292"/>
         <image name="shield" width="36" height="36"/>

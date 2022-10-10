@@ -115,7 +115,6 @@ class MatreshkaHelper {
     func setup() {
         updateSystemConfig()
         authAnonymousIfNoToken()
-        updateHeaders()
         loadServers()
         loadProfile()
         
@@ -160,7 +159,6 @@ class MatreshkaHelper {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "access_token")
-            updateHeaders()
             loadProfile()
             loadServers()
         }
@@ -226,27 +224,6 @@ class MatreshkaHelper {
                 DispatchQueue.main.async { UIApplication.shared.registerForRemoteNotifications() }
             }
         }
-    }
-    
-    func updateHeaders() {
-//        if accessToken != "" {
-//            APIClient.default.defaultHeaders["Authorization"] = "Bearer \(accessToken)"
-//        } else {
-//            APIClient.default.defaultHeaders["Authorization"] = nil
-//        }
-//
-//        let languageCode = Locale.current.languageCode ?? ""
-//
-//        switch languageCode {
-//        case _ where languageCode.contains("ru"):
-//            APIClient.default.defaultHeaders["Locale"] = "RU"
-//        case _ where languageCode.contains("en"):
-//            APIClient.default.defaultHeaders["Locale"] = "EN"
-//        case _ where languageCode.contains("zh"):
-//            APIClient.default.defaultHeaders["Locale"] = "ZH"
-//        default:
-//            APIClient.default.defaultHeaders["Locale"] = "EN"
-//        }
     }
     
     func authAnonymousIfNoToken() {
@@ -679,10 +656,16 @@ class MatreshkaHelper {
 extension ServerDTO {
     func updatePing(completion: @escaping () -> ()) {
         do {
-            let once = try SwiftyPing(host: self.address ?? "", configuration: PingConfiguration(interval: 1.0, with: 3), queue: DispatchQueue.global())
+            let once = try SwiftyPing(host: self.address ?? "", configuration: PingConfiguration(interval: 1.0, with: 2), queue: DispatchQueue.global())
             once.observer = { [weak self] response in
-                self?.ping = Double(response.duration.millisecond)
-                completion()
+                if response.duration < 2 {
+                    self?.ping = 10000
+                    completion()
+                } else {
+                    print(response.duration.millisecond)
+                    self?.ping = Double(response.duration.millisecond)
+                    completion()
+                }
             }
             once.targetCount = 1
             try once.startPinging()

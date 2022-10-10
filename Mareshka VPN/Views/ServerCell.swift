@@ -71,15 +71,15 @@ class ServerCell: UITableViewCell {
     func stupPingUI(ms: Double) {
         pingImageView.isHidden = false
         switch ms {
-        case 1:
+        case 0...1:
             self.pingImageView.image = UIImage()
-        case 2...50:
+        case 2...60:
             self.pingImageView.image = UIImage(named: "signal5")
-        case 51...90:
+        case 61...200:
             self.pingImageView.image = UIImage(named: "signal4")
-        case 91...130:
+        case 201...400:
             self.pingImageView.image = UIImage(named: "signal3")
-        case 131...230:
+        case 401...600:
             self.pingImageView.image = UIImage(named: "signal2")
         default:
             self.pingImageView.image = UIImage(named: "signal1")
