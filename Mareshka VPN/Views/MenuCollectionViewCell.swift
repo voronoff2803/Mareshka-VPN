@@ -22,10 +22,8 @@ class MenuCollectionViewCell: UICollectionViewCell {
         let transform = self.transform.scaledBy(x: 0.9, y: 0.9)
         self.layer.opacity = 1.0
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.1) {
-                self.layer.opacity = 0.5
-                self.transform = transform
-            }
+            self.layer.opacity = 0.5
+            self.transform = transform
         }
     }
     

@@ -34,7 +34,6 @@ public extension UICollectionView {
             return
         }
         layout.itemSize = CGSize(width: side, height: side)
-        print(CGSize(width: side, height: side))
         layout.minimumLineSpacing = space
         layout.minimumInteritemSpacing = space
         layout.invalidateLayout()

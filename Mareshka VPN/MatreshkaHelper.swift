@@ -560,6 +560,24 @@ class MatreshkaHelper {
         }
     }
     
+    
+    func submitQR(qrData: String) {
+        SwiftLoader.show(animated: true)
+        api.makeRequest(MatreshkaAPI.UserAPI.SubmitQrAuth.Request(body: SubmitQrAuthRequest(qrAuthId: UUID(uuidString: qrData))))  { response in
+            SwiftLoader.hide()
+            switch response.result {
+            case .success(let res):
+                break
+            case .failure(let error):
+                if error.description == "Network error: Response could not be serialized, input data was nil or zero length." {
+                    return
+                }
+                self.showError(error: error, data: response.data)
+            }
+            SwiftLoader.hide()
+        }
+    }
+    
     func showError(error: APIClientError, data: Data?) {
         guard let data = data,
               let json = try? JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [String: Any],

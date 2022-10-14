@@ -112,3 +112,4 @@
 "splash13" = "The show's over - intermission";
 "connectionError" = "Problems with connection! \n\n Please check your internet connection";
 "scanQR" = "Scan QR code";
+"scanQRdescription" = "Scan the QR code to log in";

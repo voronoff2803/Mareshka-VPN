@@ -208,6 +208,15 @@
       }
     },
     {
+      "identity" : "swiftqrcodescanner",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vinodiOS/SwiftQRCodeScanner",
+      "state" : {
+        "revision" : "bfaa2885e836dddcb25fbfefada908377344880b",
+        "version" : "1.1.5"
+      }
+    },
+    {
       "identity" : "swiftyping",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/samiyr/SwiftyPing",

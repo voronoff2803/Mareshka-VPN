@@ -143,7 +143,6 @@
 		0D78D9F728B94E5B0027EF53 /* RedirectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D78D9F628B94E5B0027EF53 /* RedirectView.swift */; };
 		0D78D9FA28B9623B0027EF53 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0D78D9F928B9623B0027EF53 /* FirebaseAnalytics */; };
 		0D78D9FC28B9623B0027EF53 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 0D78D9FB28B9623B0027EF53 /* FirebaseMessaging */; };
-		0D78D9FE28B962900027EF53 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D78D9FD28B962900027EF53 /* GoogleService-Info.plist */; };
 		0D78DA1B28BFCF700027EF53 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D78DA1A28BFCF700027EF53 /* SplashViewController.swift */; };
 		0D78DA1D28BFD0580027EF53 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D78DA1C28BFD0580027EF53 /* SplashPresenter.swift */; };
 		0D78DA1F28BFD4D10027EF53 /* SplashAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D78DA1E28BFD4D10027EF53 /* SplashAnimator.swift */; };
@@ -167,6 +166,10 @@
 		0D7B3F962868BEEE009F8AA8 /* InformationLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7B3F952868BEEE009F8AA8 /* InformationLayout.swift */; };
 		0D7B3F982868C2CF009F8AA8 /* PanelSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7B3F972868C2CF009F8AA8 /* PanelSubscriptionViewController.swift */; };
 		0D7B406C286B39E1009F8AA8 /* InAppPurchase in Frameworks */ = {isa = PBXBuildFile; productRef = 0D7B406B286B39E1009F8AA8 /* InAppPurchase */; };
+		0D81D0BA28F9742500AB33D3 /* QrAuthDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D81D0B928F9742500AB33D3 /* QrAuthDTO.swift */; };
+		0D81D0BC28F9746000AB33D3 /* SubmitQrAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D81D0BB28F9746000AB33D3 /* SubmitQrAuth.swift */; };
+		0D81D0BE28F974CF00AB33D3 /* SubmitQrAuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D81D0BD28F974CF00AB33D3 /* SubmitQrAuthRequest.swift */; };
+		0D81D0D028F9786900AB33D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D78D9FD28B962900027EF53 /* GoogleService-Info.plist */; };
 		0D8A083A28A2DD4E00D159C4 /* PaymentSelectBulletinPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8A083928A2DD4E00D159C4 /* PaymentSelectBulletinPage.swift */; };
 		0D8A083C28A3017900D159C4 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8A083B28A3017900D159C4 /* PaymentView.swift */; };
 		0D8A083E28A3018700D159C4 /* PaymentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D8A083D28A3018700D159C4 /* PaymentView.xib */; };
@@ -207,6 +210,8 @@
 		0DC5C68B28A2CB6200A7BCA3 /* TariffView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC5C68A28A2CB6200A7BCA3 /* TariffView.swift */; };
 		0DC5C68D28A2CB7100A7BCA3 /* TariffView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DC5C68C28A2CB7100A7BCA3 /* TariffView.xib */; };
 		0DC63C1E28AE9FA60028E30D /* NotificationNamesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC63C1D28AE9FA60028E30D /* NotificationNamesExtension.swift */; };
+		0DFBA68028F979B2001A6149 /* SwiftQRCodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 0DFBA67F28F979B2001A6149 /* SwiftQRCodeScanner */; };
+		0DFBA68228F9842C001A6149 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFBA68128F9842C001A6149 /* QRCodeViewController.swift */; };
 		0DFF372428798A2C00CFBB11 /* BonusTariffView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF372328798A2C00CFBB11 /* BonusTariffView.swift */; };
 		0DFF372628798A5B00CFBB11 /* BonusTariffView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DFF372528798A5B00CFBB11 /* BonusTariffView.xib */; };
 		0DFF372828798F6D00CFBB11 /* UIView+setupFromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF372728798F6D00CFBB11 /* UIView+setupFromNib.swift */; };
@@ -382,6 +387,9 @@
 		0D7B3F902868BDB0009F8AA8 /* SubscriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
 		0D7B3F952868BEEE009F8AA8 /* InformationLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationLayout.swift; sourceTree = "<group>"; };
 		0D7B3F972868C2CF009F8AA8 /* PanelSubscriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelSubscriptionViewController.swift; sourceTree = "<group>"; };
+		0D81D0B928F9742500AB33D3 /* QrAuthDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QrAuthDTO.swift; sourceTree = "<group>"; };
+		0D81D0BB28F9746000AB33D3 /* SubmitQrAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitQrAuth.swift; sourceTree = "<group>"; };
+		0D81D0BD28F974CF00AB33D3 /* SubmitQrAuthRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitQrAuthRequest.swift; sourceTree = "<group>"; };
 		0D8A083928A2DD4E00D159C4 /* PaymentSelectBulletinPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSelectBulletinPage.swift; sourceTree = "<group>"; };
 		0D8A083B28A3017900D159C4 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		0D8A083D28A3018700D159C4 /* PaymentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentView.xib; sourceTree = "<group>"; };
@@ -427,6 +435,7 @@
 		0DC5C68A28A2CB6200A7BCA3 /* TariffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TariffView.swift; sourceTree = "<group>"; };
 		0DC5C68C28A2CB7100A7BCA3 /* TariffView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TariffView.xib; sourceTree = "<group>"; };
 		0DC63C1D28AE9FA60028E30D /* NotificationNamesExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationNamesExtension.swift; sourceTree = "<group>"; };
+		0DFBA68128F9842C001A6149 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		0DFF372328798A2C00CFBB11 /* BonusTariffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusTariffView.swift; sourceTree = "<group>"; };
 		0DFF372528798A5B00CFBB11 /* BonusTariffView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BonusTariffView.xib; sourceTree = "<group>"; };
 		0DFF372728798F6D00CFBB11 /* UIView+setupFromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+setupFromNib.swift"; sourceTree = "<group>"; };
@@ -457,6 +466,7 @@
 				0D7B406C286B39E1009F8AA8 /* InAppPurchase in Frameworks */,
 				0D7B3F8B286886B0009F8AA8 /* SPIndicator in Frameworks */,
 				0D78D9FA28B9623B0027EF53 /* FirebaseAnalytics in Frameworks */,
+				0DFBA68028F979B2001A6149 /* SwiftQRCodeScanner in Frameworks */,
 				0D1E2D752863A819005966F0 /* SwiftyPing in Frameworks */,
 				0D7B3F7B28650D6D009F8AA8 /* GoogleSignInSwift in Frameworks */,
 				0DC1B225285FA63000C7A7D5 /* Nuke in Frameworks */,
@@ -490,6 +500,7 @@
 			isa = PBXGroup;
 			children = (
 				0D7B3F972868C2CF009F8AA8 /* PanelSubscriptionViewController.swift */,
+				0DFBA68128F9842C001A6149 /* QRCodeViewController.swift */,
 				0D7B3F902868BDB0009F8AA8 /* SubscriptionViewController.swift */,
 				0DC1B22A285FAA4000C7A7D5 /* ServersViewController.swift */,
 				0DC1B226285FA68D00C7A7D5 /* RootViewController.swift */,
@@ -534,6 +545,8 @@
 		0D78D87A28B94DAD0027EF53 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0D81D0BD28F974CF00AB33D3 /* SubmitQrAuthRequest.swift */,
+				0D81D0B928F9742500AB33D3 /* QrAuthDTO.swift */,
 				0D10EDA728C51AD700CCC428 /* RefreshTokenRequest.swift */,
 				0D78D87B28B94DAD0027EF53 /* CreateUpdateLogRequest.swift */,
 				0D78D87C28B94DAD0027EF53 /* ReviewDTO.swift */,
@@ -656,6 +669,7 @@
 		0D78D8E428B94DAD0027EF53 /* UserAPI */ = {
 			isa = PBXGroup;
 			children = (
+				0D81D0BB28F9746000AB33D3 /* SubmitQrAuth.swift */,
 				0D78D8E528B94DAD0027EF53 /* CreateWithdraw.swift */,
 				0D78D8E628B94DAD0027EF53 /* GetMe.swift */,
 				0D78D8E728B94DAD0027EF53 /* GetWithdraws.swift */,
@@ -938,6 +952,7 @@
 				0D78D9F928B9623B0027EF53 /* FirebaseAnalytics */,
 				0D78D9FB28B9623B0027EF53 /* FirebaseMessaging */,
 				0D10EDC428C68B4C00CCC428 /* KeychainAccess */,
+				0DFBA67F28F979B2001A6149 /* SwiftQRCodeScanner */,
 			);
 			productName = "Mareshka VPN (new)";
 			productReference = 0DC1B1E1285F8BEF00C7A7D5 /* Mareshka VPN.app */;
@@ -984,6 +999,7 @@
 				0D7B406A286B39E1009F8AA8 /* XCRemoteSwiftPackageReference "InAppPurchase" */,
 				0D78D9F828B9623B0027EF53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				0D10EDC328C68B4C00CCC428 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				0DFBA67E28F979B2001A6149 /* XCRemoteSwiftPackageReference "SwiftQRCodeScanner" */,
 			);
 			productRefGroup = 0DC1B1E2285F8BEF00C7A7D5 /* Products */;
 			projectDirPath = "";
@@ -1009,8 +1025,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D81D0D028F9786900AB33D3 /* GoogleService-Info.plist in Resources */,
 				0DC5C68D28A2CB7100A7BCA3 /* TariffView.xib in Resources */,
-				0D78D9FE28B962900027EF53 /* GoogleService-Info.plist in Resources */,
 				0DC1B1F1285F8BF000C7A7D5 /* LaunchScreen.storyboard in Resources */,
 				0DC1B1FD285F971800C7A7D5 /* SF-Pro-Rounded-Medium.otf in Resources */,
 				0DFF372628798A5B00CFBB11 /* BonusTariffView.xib in Resources */,
@@ -1128,12 +1144,14 @@
 				0D78D95A28B94DAD0027EF53 /* AttachTokenRequest.swift in Sources */,
 				0D78D94928B94DAD0027EF53 /* CreateUpdateLogRequest.swift in Sources */,
 				0D78D9EF28B94DAD0027EF53 /* CancelRobokassaSub.swift in Sources */,
+				0DFBA68228F9842C001A6149 /* QRCodeViewController.swift in Sources */,
 				0D78D9B728B94DAD0027EF53 /* GetPromocodeDiscount.swift in Sources */,
 				0D78D99428B94DAD0027EF53 /* BuySub.swift in Sources */,
 				0D78D96228B94DAD0027EF53 /* AppleAuthRequest.swift in Sources */,
 				0D78D9B828B94DAD0027EF53 /* UpdateServerStatus1.swift in Sources */,
 				0DC1B229285FA92A00C7A7D5 /* MatreshkaHelper.swift in Sources */,
 				0D78D9CD28B94DAD0027EF53 /* SubmitEmailVerification.swift in Sources */,
+				0D81D0BA28F9742500AB33D3 /* QrAuthDTO.swift in Sources */,
 				0DC1B216285F972F00C7A7D5 /* Configuration.swift in Sources */,
 				0DFF3904287B649600CFBB11 /* TicketsViewController.swift in Sources */,
 				0DC2809A2881F7390059E33E /* MButton.swift in Sources */,
@@ -1177,6 +1195,7 @@
 				0D78D94B28B94DAD0027EF53 /* EditTicketRequest.swift in Sources */,
 				0D5E66C628ECAE4F0094C949 /* BeautifulGridLayout.swift in Sources */,
 				0D78D9A828B94DAD0027EF53 /* CreateWithdraw.swift in Sources */,
+				0D81D0BC28F9746000AB33D3 /* SubmitQrAuth.swift in Sources */,
 				0D78D9CB28B94DAD0027EF53 /* AuthByEmail.swift in Sources */,
 				0D78D96928B94DAD0027EF53 /* WithdrawRequest.swift in Sources */,
 				0D78D94328B94DAD0027EF53 /* AnyCodable.swift in Sources */,
@@ -1196,6 +1215,7 @@
 				0D78D98528B94DAD0027EF53 /* UpdateLogDTO.swift in Sources */,
 				0D78D98328B94DAD0027EF53 /* UserStatisticItem.swift in Sources */,
 				0D78D9D728B94DAD0027EF53 /* GetPaymentTariffs.swift in Sources */,
+				0D81D0BE28F974CF00AB33D3 /* SubmitQrAuthRequest.swift in Sources */,
 				0D78D94A28B94DAD0027EF53 /* ReviewDTO.swift in Sources */,
 				0D78D98B28B94DAD0027EF53 /* CreateTicketRequest.swift in Sources */,
 				0D78D97B28B94DAD0027EF53 /* UpdateFetchDataRequest.swift in Sources */,
@@ -1453,7 +1473,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Mareshka VPN/Mareshka VPN.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 56;
+				CURRENT_PROJECT_VERSION = 57;
 				DEVELOPMENT_TEAM = 2R48RT3S99;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Mareshka VPN/Info.plist";
@@ -1465,15 +1485,14 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.7;
+				MARKETING_VERSION = 2.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.horsltd.Matreshka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1489,7 +1508,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Mareshka VPN/Mareshka VPN.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 56;
+				CURRENT_PROJECT_VERSION = 57;
 				DEVELOPMENT_TEAM = 2R48RT3S99;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Mareshka VPN/Info.plist";
@@ -1501,15 +1520,14 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.7;
+				MARKETING_VERSION = 2.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.horsltd.Matreshka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1638,6 +1656,14 @@
 				kind = branch;
 			};
 		};
+		0DFBA67E28F979B2001A6149 /* XCRemoteSwiftPackageReference "SwiftQRCodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vinodiOS/SwiftQRCodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1700,6 +1726,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0DC1B223285FA63000C7A7D5 /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = Nuke;
+		};
+		0DFBA67F28F979B2001A6149 /* SwiftQRCodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0DFBA67E28F979B2001A6149 /* XCRemoteSwiftPackageReference "SwiftQRCodeScanner" */;
+			productName = SwiftQRCodeScanner;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -112,3 +112,4 @@
 "splash13" = "获得被封锁资源的访问权";
 "connectionError" = "连接问题！ \n\n 请检查您的网络连接";
 "scanQR" = "扫描QR码";
+"scanQRdescription" = "扫描二维码登录";

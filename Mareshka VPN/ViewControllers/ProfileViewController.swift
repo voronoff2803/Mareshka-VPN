@@ -22,7 +22,7 @@ class ProfileViewController: RootViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     lazy var menuCells = [
-        MenuCellModel(title: "scanQR".localized, icon: UIImage(named: "qrIcon")!, color: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), handler: {}),
+        MenuCellModel(title: "scanQR".localized, icon: UIImage(named: "qrIcon")!, color: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), handler: {self.showQRscanner()}),
         MenuCellModel(title: "referal".localized, icon: UIImage(named: "refIcon")!, color: #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1), handler: {self.showReferal()}),
         MenuCellModel(title: "subCancel".localized, icon: UIImage(named: "subCancelIcon")!, color: #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1), handler: {self.cancelSub()}),
         MenuCellModel(title: "deleteAccount".localized, icon: UIImage(named: "trashBinIcon")!, color: #colorLiteral(red: 0.9568627451, green: 0.1882352941, blue: 0.1882352941, alpha: 1), handler: {self.deleteAcc()}),
@@ -92,9 +92,24 @@ class ProfileViewController: RootViewController {
         
         view.layoutIfNeeded() // need to call before update collection view layout.
         
-        var gridNumber = Int(self.collectionView.bounds.width) / 120
-
+        let gridNumber = Int(self.collectionView.bounds.width) / 120
         collectionView.adaptBeautifulGrid(numberOfGridsPerRow: gridNumber, gridLineSpace: 16.0)
+    }
+    
+    func showQRscanner() {
+        var configuration = QRScannerConfiguration()
+        configuration.galleryImage = nil
+        configuration.cameraImage = nil
+        configuration.flashOnImage = nil
+        configuration.readQRFromPhotos = false
+        configuration.hint = "scanQRdescription".localized
+        configuration.title = "scanQR".localized
+        
+        
+        let scanner = QRCodeScannerController(qrScannerConfiguration: configuration)
+        scanner.view.backgroundColor = UIColor(named: "LoaderColor")
+        scanner.delegate = self
+        self.present(scanner, animated: true, completion: nil)
     }
     
     @IBAction func cancelSub() {
@@ -219,6 +234,7 @@ class ProfileViewController: RootViewController {
     }
     
     @objc func buttonAction() {
+        print(state == .notAuthorized)
         if state == .notAuthorized {
             bulletinManager.showBulletin(above: self)
         } else {
@@ -298,7 +314,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
 
 
 struct MenuCellModel {
-    var isEnabled: Bool = true {
+    var isEnabled: Bool = false {
         didSet {
             NotificationCenter.default.post(name: .menuCellsUpdate, object: nil)
         }
@@ -307,4 +323,28 @@ struct MenuCellModel {
     let icon: UIImage
     let color: UIColor
     let handler: () -> ()
+}
+
+
+extension ProfileViewController: QRScannerCodeDelegate {
+    func qrScanner(_ controller: UIViewController, scanDidComplete result: String) {
+        if let data = result.data(using: .utf8) {
+            do {
+                let dict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: String]
+                MatreshkaHelper.shared.submitQR(qrData: dict?["qrAuthId"] ?? "")
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        
+        
+    }
+    
+    func qrScannerDidFail(_ controller: UIViewController, error: QRCodeError) {
+        print(#function)
+    }
+    
+    func qrScannerDidCancel(_ controller: UIViewController) {
+        print(#function)
+    }
 }
