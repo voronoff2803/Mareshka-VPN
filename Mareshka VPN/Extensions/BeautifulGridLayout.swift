@@ -28,7 +28,7 @@ public extension UICollectionView {
         var length = isScrollDirectionVertical ? self.frame.width : self.frame.height
         length -= space * CGFloat(numberOfGridsPerRow - 1)
         length -= isScrollDirectionVertical ? (inset.left + inset.right) : (inset.top + inset.bottom)
-        let side = length / CGFloat(numberOfGridsPerRow)
+        let side = length / CGFloat(numberOfGridsPerRow) - 1
         
         guard side > 0.0 else {
             return

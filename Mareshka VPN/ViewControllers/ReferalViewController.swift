@@ -8,6 +8,7 @@
 import UIKit
 import SPIndicator
 import BLTNBoard
+import FirebaseAnalytics
 
 class ReferalViewController: UIViewController {
     
@@ -34,6 +35,8 @@ class ReferalViewController: UIViewController {
         updateUIProfile()
         
         MatreshkaHelper.shared.loadProfile()
+        
+        FirebaseAnalytics.Analytics.logEvent("сlick_referral", parameters: nil)
     }
     
     
@@ -92,6 +95,8 @@ class ReferalViewController: UIViewController {
     @IBAction func copyAction() {
         SPIndicator.present(title: "copyAlert".localized, preset: .done)
         UIPasteboard.general.string = promoLabel.text
+        
+        FirebaseAnalytics.Analytics.logEvent("copy_refferal", parameters: nil)
     }
     
     @IBAction func closeAction() {

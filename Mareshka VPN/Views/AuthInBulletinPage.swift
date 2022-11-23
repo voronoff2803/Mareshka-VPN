@@ -8,6 +8,7 @@
 import UIKit
 import BLTNBoard
 import AuthenticationServices
+import FirebaseAnalytics
 
 
 @objc public class AuthInBulletinPage: BLTNPageItem {
@@ -27,7 +28,8 @@ import AuthenticationServices
         self.appearance.titleTextColor = .white
         self.appearance.descriptionFontSize = 17
         self.appearance.descriptionTextColor = .white.withAlphaComponent(0.5)
-
+        
+        FirebaseAnalytics.Analytics.logEvent("registrationstart", parameters: nil)
     }
     
     override public func makeViewsUnderDescription(with interfaceBuilder: BLTNInterfaceBuilder) -> [UIView]? {

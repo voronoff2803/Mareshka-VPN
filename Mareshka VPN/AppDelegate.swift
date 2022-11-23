@@ -9,6 +9,8 @@ import UIKit
 import Firebase
 import FirebaseMessaging
 import UserNotifications
+import SwiftRater
+import FirebaseAnalytics
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,8 +22,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         setupUI()
         FirebaseApp.configure()
+        
         Messaging.messaging().delegate = self
         UNUserNotificationCenter.current().delegate = self
+        
+        SwiftRater.daysUntilPrompt = 0
+        SwiftRater.usesUntilPrompt = 0
+        SwiftRater.significantUsesUntilPrompt = 0
+        SwiftRater.daysBeforeReminding = 1
+        SwiftRater.showLaterButton = true
+        SwiftRater.debugMode = false
+        SwiftRater.appLaunched()
         
         return true
     }
@@ -86,6 +97,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 MatreshkaHelper.shared.sendToken(token: token)
             }
         }
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        FirebaseAnalytics.Analytics.logEvent("app_close", parameters: nil)
     }
 }
 
@@ -158,3 +173,4 @@ extension AppDelegate: MessagingDelegate {
         }
     }
 }
+

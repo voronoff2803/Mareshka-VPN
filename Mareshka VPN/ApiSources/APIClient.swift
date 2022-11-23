@@ -62,7 +62,7 @@ public class APIClient {
             let error = APIClientError.requestEncodingError(error)
             requestBehaviour.onFailure(error: error)
             let response = APIResponse<T>(request: request, result: .failure(error))
-            complete(response)
+            completionQueue.async { complete(response) }
             return nil
         }
         
@@ -87,7 +87,7 @@ public class APIClient {
                 let error = APIClientError.validationError(error)
                 let response = APIResponse<T>(request: request, result: .failure(error), urlRequest: urlRequest)
                 requestBehaviour.onFailure(error: error)
-                complete(response)
+                completionQueue.async { complete(response) }
             }
         }
         return cancellableRequest
@@ -178,9 +178,7 @@ public class APIClient {
         let response = APIResponse<T>(request: request, result: result, urlRequest: dataResponse.request, urlResponse: dataResponse.response, data: dataResponse.data, metrics: dataResponse.metrics)
         requestBehaviour.onResponse(response: response.asAny())
         
-        completionQueue.async {
-            complete(response)
-        }
+        completionQueue.async { complete(response) }
     }
 }
 

@@ -3,23 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>118329483993-q425fpo3nalr9ieh4kkquoufhb88k4qe.apps.googleusercontent.com</string>
+	<string>772325308519-o7104atif260dnjh6smkvgia2p71iu2e.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.118329483993-q425fpo3nalr9ieh4kkquoufhb88k4qe</string>
+	<string>com.googleusercontent.apps.772325308519-o7104atif260dnjh6smkvgia2p71iu2e</string>
 	<key>ANDROID_CLIENT_ID</key>
-	<string>118329483993-673umkdf8rqprt6f7jbi8i1f9r2fohgl.apps.googleusercontent.com</string>
+	<string>772325308519-3ecgq8dk595tremkimqc2gaqndhrajgh.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyD1gd_iixgOc-v4N65eSKsLsfDjkAEAC8M</string>
+	<string>AIzaSyA0OuVt3bhwh97NnJaCHq562Z_tbYXlblI</string>
 	<key>GCM_SENDER_ID</key>
-	<string>118329483993</string>
+	<string>772325308519</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.horsltd.Matreshka</string>
 	<key>PROJECT_ID</key>
-	<string>matreshkavpn-1647953213249</string>
+	<string>matreshka-app</string>
 	<key>STORAGE_BUCKET</key>
-	<string>matreshkavpn-1647953213249.appspot.com</string>
+	<string>matreshka-app.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:118329483993:ios:5d4222fc907f01480014c8</string>
+	<string>1:772325308519:ios:c7bb6abc3e9e532170bcc2</string>
 </dict>
 </plist>

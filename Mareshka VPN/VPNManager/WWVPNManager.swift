@@ -47,24 +47,22 @@ final class WWVPNManager: NSObject {
     @objc private func VPNStatusDidChange(_: NSNotification?){
         statusEvent.notify(status)
     }
-    private func loadProfile(callback: ((Bool)->Void)?) {
+    private func loadProfile(callback: ((String?)->Void)?) {
         manager.protocolConfiguration = nil
         manager.loadFromPreferences { error in
             if let error = error {
-                NSLog("Failed to load preferences: \(error.localizedDescription)")
-                callback?(false)
+                callback?("Failed to load preferences: \(error.localizedDescription)")
             } else {
-                callback?(self.manager.protocolConfiguration != nil)
+                callback?(nil)
             }
         }
     }
-    private func saveProfile(callback: ((Bool)->Void)?) {
+    private func saveProfile(callback: ((String?)->Void)?) {
         manager.saveToPreferences { error in
             if let error = error {
-                NSLog("Failed to save profile: \(error.localizedDescription)")
-                callback?(false)
+                callback?("Failed to load preferences: \(error.localizedDescription)")
             } else {
-                callback?(true)
+                callback?(nil)
             }
         }
     }
@@ -93,22 +91,31 @@ final class WWVPNManager: NSObject {
         
         loadProfile { _ in
             self.manager.protocolConfiguration = p
-            if config.onDemand {
-                self.manager.onDemandRules = [NEOnDemandRuleConnect()]
-                self.manager.isOnDemandEnabled = true
-            }
+
+            
+            //let evaluationRule = NEEvaluateConnectionRule(matchDomains: TLDList.tlds,
+            //                                              andAction: NEEvaluateConnectionRuleAction.connectIfNeeded)
+            //evaluationRule.useDNSServers = ["8.8.8.8"]
+            //let onDemandRule = NEOnDemandRuleEvaluateConnection()
+            //onDemandRule.interfaceTypeMatch = NEOnDemandRuleInterfaceType.any
+            //onDemandRule.connectionRules = [evaluationRule]
+            
+            //self.manager.onDemandRules = [onDemandRule]
+            self.manager.isOnDemandEnabled = true
+                
             self.manager.isEnabled = true
-            self.saveProfile { success in
-                if !success {
-                    onError("Unable to save vpn profile")
+            self.saveProfile { error in
+                if let error = error {
+                    onError(error)
                     return
                 }
-                self.loadProfile() { success in
-                    if !success {
-                        onError("Unable to load profile")
+                self.loadProfile() { error in
+                    if let error = error {
+                        onError(error)
                         return
                     }
-                    let result = self.startVPNTunnel()                }
+                    self.startVPNTunnel()
+                }
             }
         }
     }

@@ -9,6 +9,7 @@ import UIKit
 import InAppPurchase
 import SPIndicator
 import SwiftyPing
+import FirebaseAnalytics
 
 
 class MatreshkaHelper {
@@ -47,6 +48,7 @@ class MatreshkaHelper {
     }
     
     var isFinishing = false
+    
     func finishInitiation() {
         if isFinishing { return }
         isFinishing = true
@@ -135,6 +137,7 @@ class MatreshkaHelper {
     let api = APIClient.default
     var user: UserDTO? {
         didSet {
+            FirebaseAnalytics.Analytics.setUserID(user?.id?.uuidString)
             NotificationCenter.default.post(name: .userProfileUpdate, object: nil)
         }
     }
@@ -158,9 +161,11 @@ class MatreshkaHelper {
             return UserDefaults.standard.string(forKey: "access_token") ?? ""
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "access_token")
-            loadProfile()
-            loadServers()
+            if newValue != UserDefaults.standard.string(forKey: "access_token") ?? "" {
+                UserDefaults.standard.set(newValue, forKey: "access_token")
+                loadProfile()
+                loadServers()
+            }
         }
     }
     
@@ -248,14 +253,16 @@ class MatreshkaHelper {
         let deviceId = getUUID() ?? UIDevice.current.identifierForVendor?.uuidString ?? ""
         SwiftLoader.show(animated: true)
         api.makeRequest(MatreshkaAPI.AuthAPI.AuthByApple.Request(body: AppleAuthRequest(credentials: credentials, deviceId: deviceId, email: email, authorizationCode: authorizationCode))) { response in
+            SwiftLoader.hide()
             switch response.result {
             case .success(let result):
                 self.accessToken = result.success?.token ?? ""
                 self.refreshToken = result.success?.refreshToken ?? ""
+                
+                FirebaseAnalytics.Analytics.logEvent("registrationfinish", parameters: ["type": "apple"])
             case .failure(let error):
                 self.showError(error: error, data: response.data)
             }
-            SwiftLoader.hide()
         }
     }
     
@@ -267,6 +274,8 @@ class MatreshkaHelper {
             case .success(let result):
                 self.accessToken = result.success?.token ?? ""
                 self.refreshToken = result.success?.refreshToken ?? ""
+                
+                FirebaseAnalytics.Analytics.logEvent("registrationfinish", parameters: ["type": "google"])
             case .failure(let error):
                 self.showError(error: error, data: response.data)
             }
@@ -313,6 +322,8 @@ class MatreshkaHelper {
             case .success(let result):
                 self.accessToken = result.success?.token ?? ""
                 self.refreshToken = result.success?.refreshToken ?? ""
+                
+                FirebaseAnalytics.Analytics.logEvent("registrationfinish", parameters: ["type": "google"])
             case .failure(let error):
                 self.showError(error: error, data: response.data)
             }
@@ -381,6 +392,8 @@ class MatreshkaHelper {
         
         SwiftLoader.show(animated: true)
         self.authAnonymousIfNoToken()
+        
+        FirebaseAnalytics.Analytics.logEvent("log_out", parameters: nil)
     }
     
     func loadServers() {
@@ -391,6 +404,7 @@ class MatreshkaHelper {
             case .success(let result):
                 self.serversList = result.success ?? self.serversList
             case .failure(let error):
+                self.serversList = { self.serversList }()
                 print(error.description)
             }
         }
@@ -414,6 +428,8 @@ class MatreshkaHelper {
             case .failure(let error):
                 self.showAlert(message: error.localizedDescription, error: true)
                 SwiftLoader.hide()
+                
+                FirebaseAnalytics.Analytics.logEvent("purchase_failed", parameters: ["reason": error.localizedDescription])
             }
         }
     }
@@ -492,6 +508,7 @@ class MatreshkaHelper {
     }
     
     func sendToken(token: String) {
+        print("apns token: \(token)")
         api.makeRequest(MatreshkaAPI.UserAPI.AddTokenToUser.Request(body: AttachTokenRequest(token: token))) { response in
             print(response)
         }
@@ -536,6 +553,8 @@ class MatreshkaHelper {
             }
             SwiftLoader.hide()
         }
+        
+        FirebaseAnalytics.Analytics.logEvent("delete_account", parameters: nil)
     }
     
     func getRobocassaURL(tariff: TariffDTO) {
@@ -627,20 +646,19 @@ class MatreshkaHelper {
         else { return }
 
         let config = Configuration(server: adress, account: identifier, password: identifier)
-        print(config.server)
-        print(config.account)
-        print(config.password)
         
-    //#if targetEnvironment(macCatalyst)
-    //#else
+        FirebaseAnalytics.Analytics.logEvent("start_vpn", parameters: ["vpn_country": selectedServer.country ?? ""])
         
         vpnManager.connectIKEv2(config: config) { error in
+            FirebaseAnalytics.Analytics.logEvent("vpn_failed", parameters: ["reason": error.localized])
+            
             self.showAlert(message: error, error: true)
         }
-    //#endif
     }
     
     func disconnectVPN() {
+        FirebaseAnalytics.Analytics.logEvent("stop_vpn", parameters: nil)
+        
         vpnManager.disconnect()
     }
     
@@ -676,11 +694,10 @@ extension ServerDTO {
         do {
             let once = try SwiftyPing(host: self.address ?? "", configuration: PingConfiguration(interval: 1.0, with: 2), queue: DispatchQueue.global())
             once.observer = { [weak self] response in
-                if response.duration < 2 {
+                if response.duration.millisecond < 2 {
                     self?.ping = 10000
                     completion()
                 } else {
-                    print(response.duration.millisecond)
                     self?.ping = Double(response.duration.millisecond)
                     completion()
                 }
@@ -689,6 +706,7 @@ extension ServerDTO {
             try once.startPinging()
         }
         catch {
+            print(error.localizedDescription)
             self.ping = 10000
             completion()
         }

@@ -8,6 +8,7 @@
 import UIKit
 import BLTNBoard
 import AuthenticationServices
+import FirebaseAnalytics
 
 
 
@@ -53,7 +54,11 @@ import AuthenticationServices
         }
         
         self.descriptionText = "price".localized(price)
-
+        
+        FirebaseAnalytics.Analytics.logEvent("click_product", parameters: ["product_id": tariff.id?.uuidString ?? "",
+                                                                           "product_name": tariff.name ?? "",
+                                                                           "price": tariff.enPrice ?? "",
+                                                                           "currency": "USD"])
     }
     
     override public func makeViewsUnderDescription(with interfaceBuilder: BLTNInterfaceBuilder) -> [UIView]? {
@@ -107,6 +112,7 @@ import AuthenticationServices
 extension PaymentSelectBulletinPage: UITextFieldDelegate {
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        FirebaseAnalytics.Analytics.logEvent("promocode_click", parameters: nil)
         return true
     }
 }

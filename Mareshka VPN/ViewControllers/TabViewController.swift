@@ -34,5 +34,14 @@ class TabViewController: UITabBarController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        showQRAuth()
+    }
+    
+    func showQRAuth() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let qrAuthController = storyboard.instantiateViewController(withIdentifier: "QRAuthViewController") as! QRAuthViewController
+        
+        self.present(qrAuthController, animated: true)
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class ServersViewController: RootViewController {
     
@@ -24,6 +25,8 @@ class ServersViewController: RootViewController {
         tableView.reloadData()
         
         navigationItem.title = "servers".localized
+        
+        FirebaseAnalytics.Analytics.logEvent("click_server", parameters: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,6 +56,4 @@ extension ServersViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    
 }

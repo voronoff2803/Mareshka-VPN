@@ -9,6 +9,7 @@ import UIKit
 import FloatingPanel
 import BLTNBoard
 import InAppPurchase
+import FirebaseAnalytics
 
 class SubscriptionViewController: RootViewController {
     
@@ -141,9 +142,20 @@ class SubscriptionViewController: RootViewController {
     
     func cardPaymentAction(tariff: TariffDTO) {
         MatreshkaHelper.shared.getRobocassaURL(tariff: tariff)
+        
+        FirebaseAnalytics.Analytics.logEvent("begin_checkout", parameters: ["product_id": tariff.id?.uuidString ?? "",
+                                                                           "product_name": tariff.name ?? "",
+                                                                           "price": tariff.enPrice ?? "",
+                                                                           "currency": "USD"])
     }
     
     func applePaymentAction(tariff: TariffDTO) {
+        FirebaseAnalytics.Analytics.logEvent("begin_checkout", parameters: ["product_id": tariff.id?.uuidString ?? "",
+                                                                            "payment_type": "apple_pay",
+                                                                            "product_name": tariff.name ?? "",
+                                                                            "price": tariff.enPrice ?? "",
+                                                                            "currency": "USD"])
+        
         if MatreshkaHelper.shared.systemGlobalConfig.appleModeration ?? false {
             MatreshkaHelper.shared.makeInAppSubscription(identifier: "premium") {
                 MatreshkaHelper.shared.showAlert(message: "sucessBuy".localized, error: false)
@@ -153,6 +165,12 @@ class SubscriptionViewController: RootViewController {
         }
         
         MatreshkaHelper.shared.makeInAppSubscription(identifier: String(tariff.id?.uuidString.suffix(12) ?? "").lowercased()) {
+            FirebaseAnalytics.Analytics.logEvent("purchase", parameters: ["product_id": tariff.id?.uuidString ?? "",
+                                                                          "payment_type": "apple_pay",
+                                                                          "product_name": tariff.name ?? "",
+                                                                          "price": tariff.enPrice ?? "",
+                                                                          "currency": "USD"])
+            
             MatreshkaHelper.shared.showAlert(message: "sucessBuy".localized, error: false)
             MatreshkaHelper.shared.loadProfile()
             self.bulletinManager?.dismissBulletin()

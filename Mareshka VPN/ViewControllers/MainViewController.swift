@@ -8,6 +8,8 @@
 import UIKit
 import NetworkExtension
 import Nuke
+import SwiftRater
+import FirebaseAnalytics
 
 
 class MainViewController: RootViewController {
@@ -124,6 +126,12 @@ class MainViewController: RootViewController {
             DispatchQueue.main.async {
                 self.downloadLabel.text = Units(bytes: download).getReadableUnit()
                 self.uploadLabel.text = Units(bytes: upload).getReadableUnit()
+                
+                if SwiftRater.isRateDone == false {
+                    if download > 1024 * 100 {
+                        SwiftRater.check(host: self)
+                    }
+                }
             }
         }
     }
@@ -135,11 +143,16 @@ class MainViewController: RootViewController {
         mainLabel.text = server.country
         secondLabel.text = server.city
         flagImageView.image = UIImage(named: server.countryCode ?? "")
+        
+        FirebaseAnalytics.Analytics.logEvent("click_country", parameters: ["vpn_country": server.country ?? ""])
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+//        if SwiftRater.isRateDone == false {
+//
+//            SwiftRater.check(host: self)
+//        }
     }
     
     @objc func bannerAction() {

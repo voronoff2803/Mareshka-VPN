@@ -13,13 +13,14 @@
 		0D10EDC528C68B4C00CCC428 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 0D10EDC428C68B4C00CCC428 /* KeychainAccess */; };
 		0D10EDCA28C68FDF00CCC428 /* VpnKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D10EDC928C68FDF00CCC428 /* VpnKeychain.swift */; };
 		0D10EDCD28C6926F00CCC428 /* KeychainAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D10EDCC28C6926F00CCC428 /* KeychainAccess.swift */; };
+		0D13FD68290506F200A86E62 /* SwiftRater in Frameworks */ = {isa = PBXBuildFile; productRef = 0D13FD67290506F200A86E62 /* SwiftRater */; };
 		0D1E2D6E2863A383005966F0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0D1E2D6D2863A383005966F0 /* Alamofire */; };
 		0D1E2D722863A657005966F0 /* ServerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E2D712863A657005966F0 /* ServerCell.swift */; };
 		0D1E2D752863A819005966F0 /* SwiftyPing in Frameworks */ = {isa = PBXBuildFile; productRef = 0D1E2D742863A819005966F0 /* SwiftyPing */; };
 		0D1E2D772863D23E005966F0 /* SwiftLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E2D762863D23E005966F0 /* SwiftLoader.swift */; };
 		0D1E2D7D2863D453005966F0 /* AuthInBulletinPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E2D7C2863D453005966F0 /* AuthInBulletinPage.swift */; };
-		0D1E2D802863D4D1005966F0 /* BLTNBoard in Frameworks */ = {isa = PBXBuildFile; productRef = 0D1E2D7F2863D4D1005966F0 /* BLTNBoard */; };
 		0D1E2D822863D6C6005966F0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E2D812863D6C6005966F0 /* ProfileViewController.swift */; };
+		0D227BCE28FD3DCB0026CDAA /* BLTNBoard in Frameworks */ = {isa = PBXBuildFile; productRef = 0D227BCD28FD3DCB0026CDAA /* BLTNBoard */; };
 		0D5E66C628ECAE4F0094C949 /* BeautifulGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5E66C528ECAE4F0094C949 /* BeautifulGridLayout.swift */; };
 		0D5E66C828EDEEE60094C949 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5E66C728EDEEE60094C949 /* MenuCollectionViewCell.swift */; };
 		0D78D94328B94DAD0027EF53 /* AnyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D78D87428B94DAD0027EF53 /* AnyCodable.swift */; };
@@ -169,7 +170,8 @@
 		0D81D0BA28F9742500AB33D3 /* QrAuthDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D81D0B928F9742500AB33D3 /* QrAuthDTO.swift */; };
 		0D81D0BC28F9746000AB33D3 /* SubmitQrAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D81D0BB28F9746000AB33D3 /* SubmitQrAuth.swift */; };
 		0D81D0BE28F974CF00AB33D3 /* SubmitQrAuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D81D0BD28F974CF00AB33D3 /* SubmitQrAuthRequest.swift */; };
-		0D81D0D028F9786900AB33D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D78D9FD28B962900027EF53 /* GoogleService-Info.plist */; };
+		0D82B4D2291A860E0012B57F /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = 0D82B4D1291A860E0012B57F /* QRCode */; };
+		0D82B4D4291A876D0012B57F /* QRAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D82B4D3291A876D0012B57F /* QRAuthViewController.swift */; };
 		0D8A083A28A2DD4E00D159C4 /* PaymentSelectBulletinPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8A083928A2DD4E00D159C4 /* PaymentSelectBulletinPage.swift */; };
 		0D8A083C28A3017900D159C4 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8A083B28A3017900D159C4 /* PaymentView.swift */; };
 		0D8A083E28A3018700D159C4 /* PaymentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D8A083D28A3018700D159C4 /* PaymentView.xib */; };
@@ -182,6 +184,7 @@
 		0DAC8D1228C6ABB0000FB341 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC1B206285F972F00C7A7D5 /* Observer.swift */; };
 		0DAC8D1328C6ABB0000FB341 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC1B20B285F972F00C7A7D5 /* Configuration.swift */; };
 		0DAC8D1428C6ABB0000FB341 /* WWDataUsageVPN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC1B20A285F972F00C7A7D5 /* WWDataUsageVPN.swift */; };
+		0DB71AB12927A2F1002BFA6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0DB71AB02927A2F1002BFA6B /* GoogleService-Info.plist */; };
 		0DC1B1E5285F8BEF00C7A7D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC1B1E4285F8BEF00C7A7D5 /* AppDelegate.swift */; };
 		0DC1B1EC285F8BEF00C7A7D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DC1B1EA285F8BEF00C7A7D5 /* Main.storyboard */; };
 		0DC1B1EE285F8BF000C7A7D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DC1B1ED285F8BF000C7A7D5 /* Assets.xcassets */; };
@@ -210,6 +213,7 @@
 		0DC5C68B28A2CB6200A7BCA3 /* TariffView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC5C68A28A2CB6200A7BCA3 /* TariffView.swift */; };
 		0DC5C68D28A2CB7100A7BCA3 /* TariffView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DC5C68C28A2CB7100A7BCA3 /* TariffView.xib */; };
 		0DC63C1E28AE9FA60028E30D /* NotificationNamesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC63C1D28AE9FA60028E30D /* NotificationNamesExtension.swift */; };
+		0DEC9CF42913D975001A8CDA /* tldlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC9CF32913D975001A8CDA /* tldlist.swift */; };
 		0DFBA68028F979B2001A6149 /* SwiftQRCodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 0DFBA67F28F979B2001A6149 /* SwiftQRCodeScanner */; };
 		0DFBA68228F9842C001A6149 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFBA68128F9842C001A6149 /* QRCodeViewController.swift */; };
 		0DFF372428798A2C00CFBB11 /* BonusTariffView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF372328798A2C00CFBB11 /* BonusTariffView.swift */; };
@@ -366,14 +370,12 @@
 		0D78D94128B94DAD0027EF53 /* APIResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
 		0D78D94228B94DAD0027EF53 /* Coding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coding.swift; sourceTree = "<group>"; };
 		0D78D9F628B94E5B0027EF53 /* RedirectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedirectView.swift; sourceTree = "<group>"; };
-		0D78D9FD28B962900027EF53 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0D78DA1A28BFCF700027EF53 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		0D78DA1C28BFD0580027EF53 /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
 		0D78DA1E28BFD4D10027EF53 /* SplashAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimator.swift; sourceTree = "<group>"; };
 		0D78DA2128BFEEEC0027EF53 /* UILabel+change.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+change.swift"; sourceTree = "<group>"; };
 		0D78DA2328C0088B0027EF53 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		0D7952412886B0F100DF3103 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		0D7952432886B0FB00DF3103 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		0D7952442886B11100DF3103 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0D7B3F752864E616009F8AA8 /* Date+print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+print.swift"; sourceTree = "<group>"; };
 		0D7B3F772864E8C4009F8AA8 /* Date+add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+add.swift"; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 		0D81D0B928F9742500AB33D3 /* QrAuthDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QrAuthDTO.swift; sourceTree = "<group>"; };
 		0D81D0BB28F9746000AB33D3 /* SubmitQrAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitQrAuth.swift; sourceTree = "<group>"; };
 		0D81D0BD28F974CF00AB33D3 /* SubmitQrAuthRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitQrAuthRequest.swift; sourceTree = "<group>"; };
+		0D82B4D3291A876D0012B57F /* QRAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRAuthViewController.swift; sourceTree = "<group>"; };
 		0D8A083928A2DD4E00D159C4 /* PaymentSelectBulletinPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSelectBulletinPage.swift; sourceTree = "<group>"; };
 		0D8A083B28A3017900D159C4 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		0D8A083D28A3018700D159C4 /* PaymentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentView.xib; sourceTree = "<group>"; };
@@ -405,6 +408,7 @@
 		0DAC8D0728C6AAB6000FB341 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DAC8D0A28C6AAB6000FB341 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0DAC8D0C28C6AAB6000FB341 /* Matreshka_VPN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Matreshka_VPN.entitlements; sourceTree = "<group>"; };
+		0DB71AB02927A2F1002BFA6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0DC1B1E1285F8BEF00C7A7D5 /* Mareshka VPN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mareshka VPN.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DC1B1E4285F8BEF00C7A7D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DC1B1EB285F8BEF00C7A7D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -435,6 +439,7 @@
 		0DC5C68A28A2CB6200A7BCA3 /* TariffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TariffView.swift; sourceTree = "<group>"; };
 		0DC5C68C28A2CB7100A7BCA3 /* TariffView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TariffView.xib; sourceTree = "<group>"; };
 		0DC63C1D28AE9FA60028E30D /* NotificationNamesExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationNamesExtension.swift; sourceTree = "<group>"; };
+		0DEC9CF32913D975001A8CDA /* tldlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tldlist.swift; sourceTree = "<group>"; };
 		0DFBA68128F9842C001A6149 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		0DFF372328798A2C00CFBB11 /* BonusTariffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusTariffView.swift; sourceTree = "<group>"; };
 		0DFF372528798A5B00CFBB11 /* BonusTariffView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BonusTariffView.xib; sourceTree = "<group>"; };
@@ -460,17 +465,19 @@
 				0D78D9FC28B9623B0027EF53 /* FirebaseMessaging in Frameworks */,
 				0D7B3F942868BE12009F8AA8 /* FloatingPanel in Frameworks */,
 				0D7B3F862868817A009F8AA8 /* LinearProgressBar in Frameworks */,
+				0D13FD68290506F200A86E62 /* SwiftRater in Frameworks */,
+				0D82B4D2291A860E0012B57F /* QRCode in Frameworks */,
 				0D1E2D6E2863A383005966F0 /* Alamofire in Frameworks */,
 				0DC1B21A285F974800C7A7D5 /* NetworkExtension.framework in Frameworks */,
 				0D10EDC528C68B4C00CCC428 /* KeychainAccess in Frameworks */,
 				0D7B406C286B39E1009F8AA8 /* InAppPurchase in Frameworks */,
+				0D227BCE28FD3DCB0026CDAA /* BLTNBoard in Frameworks */,
 				0D7B3F8B286886B0009F8AA8 /* SPIndicator in Frameworks */,
 				0D78D9FA28B9623B0027EF53 /* FirebaseAnalytics in Frameworks */,
 				0DFBA68028F979B2001A6149 /* SwiftQRCodeScanner in Frameworks */,
 				0D1E2D752863A819005966F0 /* SwiftyPing in Frameworks */,
 				0D7B3F7B28650D6D009F8AA8 /* GoogleSignInSwift in Frameworks */,
 				0DC1B225285FA63000C7A7D5 /* Nuke in Frameworks */,
-				0D1E2D802863D4D1005966F0 /* BLTNBoard in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +517,7 @@
 				0D1E2D812863D6C6005966F0 /* ProfileViewController.swift */,
 				0D7B3F8728688669009F8AA8 /* ReferalViewController.swift */,
 				0DFF3903287B649600CFBB11 /* TicketsViewController.swift */,
+				0D82B4D3291A876D0012B57F /* QRAuthViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -848,7 +856,7 @@
 				0DC1B1EA285F8BEF00C7A7D5 /* Main.storyboard */,
 				0DC1B1ED285F8BF000C7A7D5 /* Assets.xcassets */,
 				0DC1B1EF285F8BF000C7A7D5 /* LaunchScreen.storyboard */,
-				0D78D9FD28B962900027EF53 /* GoogleService-Info.plist */,
+				0DB71AB02927A2F1002BFA6B /* GoogleService-Info.plist */,
 				0DC1B1F2285F8BF000C7A7D5 /* Info.plist */,
 				0D10EDB928C66C5800CCC428 /* MacPlugin-Bridging-Header.h */,
 			);
@@ -888,6 +896,7 @@
 		0DC1B205285F972F00C7A7D5 /* VPNManager */ = {
 			isa = PBXGroup;
 			children = (
+				0DEC9CF32913D975001A8CDA /* tldlist.swift */,
 				0DC1B206285F972F00C7A7D5 /* Observer.swift */,
 				0DC1B207285F972F00C7A7D5 /* WWVPNManager.swift */,
 				0DC1B20A285F972F00C7A7D5 /* WWDataUsageVPN.swift */,
@@ -943,7 +952,6 @@
 				0DC1B224285FA63000C7A7D5 /* Nuke */,
 				0D1E2D6D2863A383005966F0 /* Alamofire */,
 				0D1E2D742863A819005966F0 /* SwiftyPing */,
-				0D1E2D7F2863D4D1005966F0 /* BLTNBoard */,
 				0D7B3F7A28650D6D009F8AA8 /* GoogleSignInSwift */,
 				0D7B3F852868817A009F8AA8 /* LinearProgressBar */,
 				0D7B3F8A286886B0009F8AA8 /* SPIndicator */,
@@ -953,6 +961,9 @@
 				0D78D9FB28B9623B0027EF53 /* FirebaseMessaging */,
 				0D10EDC428C68B4C00CCC428 /* KeychainAccess */,
 				0DFBA67F28F979B2001A6149 /* SwiftQRCodeScanner */,
+				0D227BCD28FD3DCB0026CDAA /* BLTNBoard */,
+				0D13FD67290506F200A86E62 /* SwiftRater */,
+				0D82B4D1291A860E0012B57F /* QRCode */,
 			);
 			productName = "Mareshka VPN (new)";
 			productReference = 0DC1B1E1285F8BEF00C7A7D5 /* Mareshka VPN.app */;
@@ -983,7 +994,6 @@
 			knownRegions = (
 				en,
 				Base,
-				"zh-Hans",
 				ru,
 			);
 			mainGroup = 0DC1B1D8285F8BEF00C7A7D5;
@@ -991,7 +1001,6 @@
 				0DC1B223285FA63000C7A7D5 /* XCRemoteSwiftPackageReference "Nuke" */,
 				0D1E2D6C2863A383005966F0 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				0D1E2D732863A819005966F0 /* XCRemoteSwiftPackageReference "SwiftyPing" */,
-				0D1E2D7E2863D4D1005966F0 /* XCRemoteSwiftPackageReference "BulletinBoard" */,
 				0D7B3F7928650D6D009F8AA8 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				0D7B3F842868817A009F8AA8 /* XCRemoteSwiftPackageReference "LinearProgressBar" */,
 				0D7B3F89286886B0009F8AA8 /* XCRemoteSwiftPackageReference "SPIndicator" */,
@@ -1000,6 +1009,9 @@
 				0D78D9F828B9623B0027EF53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				0D10EDC328C68B4C00CCC428 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				0DFBA67E28F979B2001A6149 /* XCRemoteSwiftPackageReference "SwiftQRCodeScanner" */,
+				0D227BCC28FD3DCB0026CDAA /* XCRemoteSwiftPackageReference "BulletinBoard" */,
+				0D13FD66290506F200A86E62 /* XCRemoteSwiftPackageReference "SwiftRater" */,
+				0D82B4D0291A860E0012B57F /* XCRemoteSwiftPackageReference "QRCode" */,
 			);
 			productRefGroup = 0DC1B1E2285F8BEF00C7A7D5 /* Products */;
 			projectDirPath = "";
@@ -1025,7 +1037,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D81D0D028F9786900AB33D3 /* GoogleService-Info.plist in Resources */,
 				0DC5C68D28A2CB7100A7BCA3 /* TariffView.xib in Resources */,
 				0DC1B1F1285F8BF000C7A7D5 /* LaunchScreen.storyboard in Resources */,
 				0DC1B1FD285F971800C7A7D5 /* SF-Pro-Rounded-Medium.otf in Resources */,
@@ -1035,6 +1046,7 @@
 				0DC1B1FE285F971800C7A7D5 /* SF-Pro-Rounded-Bold.otf in Resources */,
 				0DC1B1EE285F8BF000C7A7D5 /* Assets.xcassets in Resources */,
 				0DC1B1EC285F8BEF00C7A7D5 /* Main.storyboard in Resources */,
+				0DB71AB12927A2F1002BFA6B /* GoogleService-Info.plist in Resources */,
 				0D8A083E28A3018700D159C4 /* PaymentView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1085,6 +1097,7 @@
 				0D78D9B028B94DAD0027EF53 /* AddTokenToUser.swift in Sources */,
 				0D78DA1B28BFCF700027EF53 /* SplashViewController.swift in Sources */,
 				0DC63C1E28AE9FA60028E30D /* NotificationNamesExtension.swift in Sources */,
+				0D82B4D4291A876D0012B57F /* QRAuthViewController.swift in Sources */,
 				0D78D95828B94DAD0027EF53 /* CreateServerRequest.swift in Sources */,
 				0DC1B215285F972F00C7A7D5 /* WWDataUsageVPN.swift in Sources */,
 				0D78D94C28B94DAD0027EF53 /* PageResponseReviewDTO.swift in Sources */,
@@ -1234,6 +1247,7 @@
 				0D78D94428B94DAD0027EF53 /* APIRequest.swift in Sources */,
 				0D78D95728B94DAD0027EF53 /* ResetReferralDataRequest.swift in Sources */,
 				0D78D9C928B94DAD0027EF53 /* AdminAuth.swift in Sources */,
+				0DEC9CF42913D975001A8CDA /* tldlist.swift in Sources */,
 				0D1E2D822863D6C6005966F0 /* ProfileViewController.swift in Sources */,
 				0D78D95328B94DAD0027EF53 /* EmailVerificationDTO.swift in Sources */,
 				0D78D96728B94DAD0027EF53 /* BeanFactory.swift in Sources */,
@@ -1248,7 +1262,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				0D7952412886B0F100DF3103 /* en */,
-				0D7952432886B0FB00DF3103 /* zh-Hans */,
 				0D7952442886B11100DF3103 /* ru */,
 			);
 			name = Localizable.strings;
@@ -1473,23 +1486,24 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Mareshka VPN/Mareshka VPN.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 57;
+				CURRENT_PROJECT_VERSION = 63;
 				DEVELOPMENT_TEAM = 2R48RT3S99;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Mareshka VPN/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Matreshka VPN";
+				INFOPLIST_KEY_NSCameraUsageDescription = "QR code scan";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.8;
+				MARKETING_VERSION = 2.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.horsltd.Matreshka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -1508,23 +1522,24 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Mareshka VPN/Mareshka VPN.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 57;
+				CURRENT_PROJECT_VERSION = 63;
 				DEVELOPMENT_TEAM = 2R48RT3S99;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Mareshka VPN/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Matreshka VPN";
+				INFOPLIST_KEY_NSCameraUsageDescription = "QR code scan";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.8;
+				MARKETING_VERSION = 2.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.horsltd.Matreshka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -1576,6 +1591,14 @@
 				kind = branch;
 			};
 		};
+		0D13FD66290506F200A86E62 /* XCRemoteSwiftPackageReference "SwiftRater" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/takecian/SwiftRater";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		0D1E2D6C2863A383005966F0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -1592,9 +1615,9 @@
 				kind = branch;
 			};
 		};
-		0D1E2D7E2863D4D1005966F0 /* XCRemoteSwiftPackageReference "BulletinBoard" */ = {
+		0D227BCC28FD3DCB0026CDAA /* XCRemoteSwiftPackageReference "BulletinBoard" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/alexisakers/BulletinBoard";
+			repositoryURL = "https://github.com/voronoff2803/BulletinBoard";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.0.0;
@@ -1648,6 +1671,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		0D82B4D0291A860E0012B57F /* XCRemoteSwiftPackageReference "QRCode" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dagronf/QRCode";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		0DC1B223285FA63000C7A7D5 /* XCRemoteSwiftPackageReference "Nuke" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kean/Nuke";
@@ -1672,6 +1703,11 @@
 			package = 0D10EDC328C68B4C00CCC428 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
 		};
+		0D13FD67290506F200A86E62 /* SwiftRater */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0D13FD66290506F200A86E62 /* XCRemoteSwiftPackageReference "SwiftRater" */;
+			productName = SwiftRater;
+		};
 		0D1E2D6D2863A383005966F0 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0D1E2D6C2863A383005966F0 /* XCRemoteSwiftPackageReference "Alamofire" */;
@@ -1682,9 +1718,9 @@
 			package = 0D1E2D732863A819005966F0 /* XCRemoteSwiftPackageReference "SwiftyPing" */;
 			productName = SwiftyPing;
 		};
-		0D1E2D7F2863D4D1005966F0 /* BLTNBoard */ = {
+		0D227BCD28FD3DCB0026CDAA /* BLTNBoard */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0D1E2D7E2863D4D1005966F0 /* XCRemoteSwiftPackageReference "BulletinBoard" */;
+			package = 0D227BCC28FD3DCB0026CDAA /* XCRemoteSwiftPackageReference "BulletinBoard" */;
 			productName = BLTNBoard;
 		};
 		0D78D9F928B9623B0027EF53 /* FirebaseAnalytics */ = {
@@ -1721,6 +1757,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0D7B406A286B39E1009F8AA8 /* XCRemoteSwiftPackageReference "InAppPurchase" */;
 			productName = InAppPurchase;
+		};
+		0D82B4D1291A860E0012B57F /* QRCode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0D82B4D0291A860E0012B57F /* XCRemoteSwiftPackageReference "QRCode" */;
+			productName = QRCode;
 		};
 		0DC1B224285FA63000C7A7D5 /* Nuke */ = {
 			isa = XCSwiftPackageProductDependency;

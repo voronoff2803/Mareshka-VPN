@@ -9,6 +9,7 @@ import UIKit
 import BLTNBoard
 import AuthenticationServices
 import GoogleSignIn
+import FirebaseAnalytics
 
 class ProfileViewController: RootViewController {
     
@@ -74,6 +75,8 @@ class ProfileViewController: RootViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.reloadData()
+        
+        FirebaseAnalytics.Analytics.logEvent("click_profile", parameters: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -92,8 +95,18 @@ class ProfileViewController: RootViewController {
         
         view.layoutIfNeeded() // need to call before update collection view layout.
         
-        let gridNumber = Int(self.collectionView.bounds.width) / 120
-        collectionView.adaptBeautifulGrid(numberOfGridsPerRow: gridNumber, gridLineSpace: 16.0)
+        var gridNumber = 3
+        
+        switch self.collectionView.bounds.width {
+        case 0...450:
+            gridNumber = 3
+        default:
+            gridNumber = Int(self.collectionView.bounds.width) / 120
+        }
+        
+        print(gridNumber)
+        
+        collectionView.adaptBeautifulGrid(numberOfGridsPerRow: gridNumber, gridLineSpace: 10.0)
     }
     
     func showQRscanner() {
@@ -157,7 +170,7 @@ class ProfileViewController: RootViewController {
         let signInConfig = GIDConfiguration.init(clientID: MatreshkaHelper.googleClientID)
         
         GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
-            guard error == nil else { MatreshkaHelper.shared.showAlert(message: error!.localizedDescription, error: true); return }
+            guard error == nil else { return }
             
             let userIdentifier = user?.userID ?? ""
             let email = user?.profile?.email
@@ -200,7 +213,7 @@ class ProfileViewController: RootViewController {
     
     @objc func updateProfile() {
         menuCells[1].isEnabled = (MatreshkaHelper.shared.systemGlobalConfig.enablePromos ?? false &&
-                                   !MatreshkaHelper.shared.isAnonymousUser)
+                                   MatreshkaHelper.shared.user != nil)
         if MatreshkaHelper.shared.isAnonymousUser {
             if let anonymousUser = MatreshkaHelper.shared.anonymousUser {
                 profileLabel.text = "anon".localized
