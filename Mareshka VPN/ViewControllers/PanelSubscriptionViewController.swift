@@ -69,7 +69,7 @@ class PanelSubscriptionViewController: UIViewController {
     }
     
     @IBAction func termsAction() {
-        if let url = URL(string: "\(MatreshkaHelper.webDomain)/oferta") {
+        if let url = URL(string: "\(MatreshkaHelper.webDomain)/our-terms") {
             UIApplication.shared.open(url)
         }
     }

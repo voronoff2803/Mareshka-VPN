@@ -27,7 +27,8 @@ class ProfileViewController: RootViewController {
         MenuCellModel(title: "referal".localized, icon: UIImage(named: "refIcon")!, color: #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1), handler: {self.showReferal()}),
         MenuCellModel(title: "subCancel".localized, icon: UIImage(named: "subCancelIcon")!, color: #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1), handler: {self.cancelSub()}),
         MenuCellModel(title: "deleteAccount".localized, icon: UIImage(named: "trashBinIcon")!, color: #colorLiteral(red: 0.9568627451, green: 0.1882352941, blue: 0.1882352941, alpha: 1), handler: {self.deleteAcc()}),
-        MenuCellModel(title: "logout".localized, icon: UIImage(named: "exitIcon")!, color: #colorLiteral(red: 0.7725490196, green: 0.3725490196, blue: 0.8, alpha: 1), handler: {MatreshkaHelper.shared.logout()})
+        MenuCellModel(title: "logout".localized, icon: UIImage(named: "exitIcon")!, color: #colorLiteral(red: 0.7725490196, green: 0.3725490196, blue: 0.8, alpha: 1), handler: {MatreshkaHelper.shared.logout()}),
+        MenuCellModel(title: "unlink".localized, icon: UIImage(named: "eraserIcon")!, color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), handler: { self.eraseAcc() })
     ]
     
     var filteredMenuCells: [MenuCellModel] {
@@ -46,6 +47,7 @@ class ProfileViewController: RootViewController {
             menuCells[4].isEnabled = (state == .authorized)
             menuCells[3].isEnabled = (state == .authorized)
             menuCells[0].isEnabled = (state == .authorized)
+            menuCells[5].isEnabled = (state == .authorized)
         }
     }
     
@@ -126,7 +128,14 @@ class ProfileViewController: RootViewController {
     }
     
     @IBAction func cancelSub() {
-        MatreshkaHelper.shared.cancelSub()
+        let refreshAlert = UIAlertController(title: "subCancel".localized, message: "subCancelDesc".localized, preferredStyle: UIAlertController.Style.alert)
+
+        refreshAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            MatreshkaHelper.shared.cancelSub()
+        }))
+        refreshAlert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
+        
+        refreshAlert.show()
     }
     
     @IBAction func supportAction() {
@@ -138,10 +147,21 @@ class ProfileViewController: RootViewController {
     @IBAction func deleteAcc() {
         let refreshAlert = UIAlertController(title: "deleteAccount".localized, message: "dataWarning".localized, preferredStyle: UIAlertController.Style.alert)
 
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+        refreshAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             MatreshkaHelper.shared.removeAccount()
         }))
-        refreshAlert.addAction(UIAlertAction(title: "cancel".localized, style: .cancel, handler: nil))
+        refreshAlert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
+        
+        refreshAlert.show()
+    }
+    
+    @IBAction func eraseAcc() {
+        let refreshAlert = UIAlertController(title: "unlink".localized, message: "", preferredStyle: UIAlertController.Style.alert)
+
+        refreshAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            MatreshkaHelper.shared.eraseAcc()
+        }))
+        refreshAlert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
         
         refreshAlert.show()
     }

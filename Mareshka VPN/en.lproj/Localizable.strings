@@ -15,7 +15,7 @@
 "googleSignIn" = "Sign in with Google";
 "emailSignIn" = "Login with Email";
 "emailInfo" = "A confirmation code will be sent to the specified email address.";
-"continue" = "Proceed";
+"continue" = "Continue";
 "connectionPing" = "%@ ms";
 "select" = "Choose";
 "notSelected" = "Not selected";
@@ -33,7 +33,7 @@
 "3days" = "3 days";
 "download" = "DOWNLOAD";
 "premiumSub" = "Premium Subscription";
-"termsOfUse" = "Public offer";
+"termsOfUse" = "Terms of Use";
 "backToProfile" = "Back to profile";
 "renewable" = "With auto-renewal";
 "buySub" = "Buy a subscription";
@@ -45,7 +45,7 @@
 "close" = "close";
 "privacyPolicy" = "Privacy policy";
 "restorePurchases" = "restore purchases";
-"main" = "home";
+"main" = "Home";
 "banner6" = "100% Anonymity and no logging. Privacy in public Wi-Fi";
 "month" = "Month";
 "examplemail" = "example@mail.ru";
@@ -110,6 +110,19 @@
 "splash11" = "You're a great";
 "splash12" = "I don't wear a tie on principle";
 "splash13" = "The show's over - intermission";
+"splash14" = "You're a great";
+"splash15" = "You're a great";
+"splash16" = "You're a great";
 "connectionError" = "Problems with connection! \n\n Please check your internet connection";
 "scanQR" = "Scan QR code";
 "scanQRdescription" = "Scan the QR code to log in";
+"CONNECTED" = "CONNECTED";
+"DISCONNECTED" = "DISCONNECTED";
+"CONNECTING" = "CONNECTING";
+"DISCONNECTING" = "DISCONNECTING";
+"ERRORA" = "ERROR";
+"success" = "Success";
+"thanks" = "Thanks for the purchase. We wish you a pleasant use. If you have any problems, we are always in touch and ready to help";
+"subCancel" = "Cancellation of subscription";
+"subCancelDesc" = "Attention, the subscription cannot be restored. Are you sure you want to cancel your subscription?";
+"unlink" = "Unlink all devices";

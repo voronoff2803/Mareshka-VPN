@@ -183,8 +183,13 @@ class MatreshkaHelper {
             return UserDefaults.standard.string(forKey: "selected_server") ?? ""
         }
         set {
+            let oldVal = UserDefaults.standard.string(forKey: "selected_server") ?? ""
             UserDefaults.standard.set(newValue, forKey: "selected_server")
-            NotificationCenter.default.post(name: .selectedServerUpdate, object: selectedServerId)
+            print("==========")
+            print(newValue, oldVal)
+            if newValue != oldVal {
+                NotificationCenter.default.post(name: .selectedServerUpdate, object: false)
+            }
         }
     }
     
@@ -194,7 +199,7 @@ class MatreshkaHelper {
         if selectedServerId == "" {
             selectedServerId = serversList.min(by: {$0.ping! < $1.ping!})?.id?.description ?? ""
         } else {
-            NotificationCenter.default.post(name: .selectedServerUpdate, object: selectedServerId)
+            NotificationCenter.default.post(name: .selectedServerUpdate, object: true)
         }
         
         finishInitiation()
@@ -527,6 +532,21 @@ class MatreshkaHelper {
         }
     }
     
+    func eraseAcc() {
+        SwiftLoader.show(animated: true)
+        let deviceId = getUUID() ?? UIDevice.current.identifierForVendor?.uuidString ?? ""
+        api.makeRequest(MatreshkaAPI.UserAPI.CleanDevices.Request(body: CleanDevicesRequest(nowDeviceId: deviceId))){ response in
+            switch response.result {
+            case .success( _):
+                break
+            case .failure(let error):
+                self.showError(error: error, data: response.data)
+            }
+            SwiftLoader.hide()
+        }
+    }
+    
+    
     
     func sendWithdraw(card: String?, count: Double?, email: String?, completion: @escaping (WithdrawDTO?) -> ()) {
         SwiftLoader.show(animated: true)
@@ -643,7 +663,10 @@ class MatreshkaHelper {
         
         guard let identifier = isAnonymousUser ? getUUID() : user?.email,
               let adress = selectedServer.address
-        else { return }
+        else {
+            self.showAlert(message: "loginIfNeed mehod error", error: true)
+            return
+        }
 
         let config = Configuration(server: adress, account: identifier, password: identifier)
         
@@ -656,10 +679,10 @@ class MatreshkaHelper {
         }
     }
     
-    func disconnectVPN() {
+    func disconnectVPN(completionHandler: (()->Void)? = nil) {
         FirebaseAnalytics.Analytics.logEvent("stop_vpn", parameters: nil)
         
-        vpnManager.disconnect()
+        vpnManager.disconnect(completionHandler: completionHandler)
     }
     
     func getUUID() -> String? {

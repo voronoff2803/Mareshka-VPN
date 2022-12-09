@@ -96,7 +96,7 @@ class ReferalViewController: UIViewController {
         SPIndicator.present(title: "copyAlert".localized, preset: .done)
         UIPasteboard.general.string = promoLabel.text
         
-        FirebaseAnalytics.Analytics.logEvent("copy_refferal", parameters: nil)
+        FirebaseAnalytics.Analytics.logEvent("copy_referral", parameters: nil)
     }
     
     @IBAction func closeAction() {

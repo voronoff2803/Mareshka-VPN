@@ -32,12 +32,14 @@ class ServerCell: UITableViewCell {
     }
     
     @objc func selectAction() {
-        NotificationCenter.default.post(name: .selectedServerUpdate, object: server?.id?.uuidString)
-        MatreshkaHelper.shared.selectedServerId = server?.id?.uuidString ?? ""
+        if [.connected, .disconnected, .invalid].contains(WWVPNManager.shared.status) {
+            NotificationCenter.default.post(name: .selectedServerUpdate, object: false)
+            MatreshkaHelper.shared.selectedServerId = server?.id?.uuidString ?? ""
+        }
     }
     
     @objc func selectedServerChanged(_ notification: Notification) {
-        guard let serverId = notification.object as? String else { return }
+        let serverId = MatreshkaHelper.shared.selectedServerId
         if serverId == server?.id?.description {
             serverSwitch.setOn(true, animated: true)
         } else if serverSwitch.isOn {

@@ -35,7 +35,7 @@ class TabViewController: UITabBarController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        showQRAuth()
+        //showQRAuth()
     }
     
     func showQRAuth() {

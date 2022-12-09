@@ -7,8 +7,12 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Bundle ID</string>
 			<key>CFBundleURLSchemes</key>
-			<array/>
+			<array>
+				<string>com.horsltd.Matreshka</string>
+			</array>
 		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>
@@ -18,6 +22,7 @@
 				<string>com.googleusercontent.apps.250829852194-k3slpecs1tnk3ssqe4mirjjs2enhpghf</string>
 			</array>
 		</dict>
+		<dict/>
 	</array>
 	<key>FirebaseMessagingAutoInitEnabled</key>
 	<false/>
@@ -27,7 +32,5 @@
 		<string>SF-Pro-Rounded-Medium.otf</string>
 		<string>SF-Pro-Rounded-Regular.otf</string>
 	</array>
-	<key>UIStatusBarStyle</key>
-	<string>UIStatusBarStyleLightContent</string>
 </dict>
 </plist>

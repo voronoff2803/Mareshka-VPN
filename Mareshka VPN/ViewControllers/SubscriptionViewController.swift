@@ -48,6 +48,8 @@ class SubscriptionViewController: RootViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(appBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(purchaseCompliteShow), name: .successPurchase, object: nil)
+        
         MatreshkaHelper.shared.getTariffs() { tariff in
             if MatreshkaHelper.shared.systemGlobalConfig.appleModeration ?? false {
                 self.tariffs = [TariffDTO(ballCost: 0, bonus: false, chPrice: 20.0, discount: nil, duration: 1, durationType: .month, enPrice: 0.99, id: UUID(), locale: nil, name: "1 Month", ruPrice: 99.0)]
@@ -107,6 +109,7 @@ class SubscriptionViewController: RootViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .successPurchase, object: nil)
     }
     
     @IBAction func termsOfUse() {
@@ -169,12 +172,30 @@ class SubscriptionViewController: RootViewController {
                                                                           "payment_type": "apple_pay",
                                                                           "product_name": tariff.name ?? "",
                                                                           "price": tariff.enPrice ?? "",
-                                                                          "currency": "USD"])
+                                                                          "currency": "USD",
+                                                                          "revenue": tariff.enPrice ?? ""])
             
             MatreshkaHelper.shared.showAlert(message: "sucessBuy".localized, error: false)
             MatreshkaHelper.shared.loadProfile()
             self.bulletinManager?.dismissBulletin()
         }
+    }
+    
+    @objc func purchaseCompliteShow() {
+        
+        let page = PurchaseCelebBulletinPage(title: "success".localized)
+        
+        let rootItem: BLTNItem = page
+        
+        if bulletinManager?.isShowingBulletin == true {
+            bulletinManager?.push(item: rootItem)
+            return
+        }
+        
+        let manager = BLTNItemManager(rootItem: rootItem)
+        manager.backgroundColor = #colorLiteral(red: 0.09678619355, green: 0.1317168474, blue: 0.2372510433, alpha: 1)
+        bulletinManager = manager
+        bulletinManager?.showBulletin(in: UIApplication.shared)
     }
 }
 

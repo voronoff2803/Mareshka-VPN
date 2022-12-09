@@ -30,7 +30,10 @@ class SplashViewController: UIViewController {
         "splash10",
         "splash11",
         "splash12",
-        "splash13"
+        "splash13",
+        "splash14",
+        "splash15",
+        "splash16"
         ]
     
     var logoIsHidden = false
@@ -46,7 +49,11 @@ class SplashViewController: UIViewController {
         logoImageView.isHidden = logoIsHidden
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) { [weak self] in
-            self?.textLabel.changeText(text: "connectionError".localized)
+            if WWVPNManager.shared.status == .disconnected {
+                self?.textLabel.changeText(text: "connectionError".localized)
+            } else {
+                MatreshkaHelper.shared.finishInitiation()
+            }
         }
     }
 }

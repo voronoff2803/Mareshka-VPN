@@ -13,10 +13,8 @@ import FirebaseAnalytics
 
 
 class MainViewController: RootViewController {
-    @IBOutlet weak var mainButton: UIButton!
-    @IBOutlet weak var firstCircle: UIImageView!
-    @IBOutlet weak var secondCircle: UIImageView!
-    @IBOutlet weak var onOffIcon: UIView!
+    @IBOutlet weak var blobView: ActivityBlobView!
+    @IBOutlet weak var ioButton: UIButton!
     @IBOutlet weak var currentServerView: UIView!
     @IBOutlet weak var downloadLabel: UILabel!
     @IBOutlet weak var uploadLabel: UILabel!
@@ -25,9 +23,9 @@ class MainViewController: RootViewController {
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var secondLabel: UILabel!
     @IBOutlet weak var bannerImage: UIImageView!
+    @IBOutlet weak var statusLabel: UILabel!
     
     var timer: Timer?
-    var currentStatus: NEVPNStatus!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +45,19 @@ class MainViewController: RootViewController {
         vpnStateChanged(status: WWVPNManager.shared.status)
         WWVPNManager.shared.statusEvent.attach(self,  MainViewController.vpnStateChanged)
         
-        //setLoadState(isLoading: true)
+        ioButton.addTarget(self, action: #selector(mainButtonUp), for: .touchUpInside)
+        ioButton.addTarget(self, action: #selector(mainButtonUp), for: .touchUpOutside)
+        ioButton.addTarget(self, action: #selector(mainButtonDown), for: .touchDown)
+        
+        ioButton.layer.compositingFilter = "lightenBlendMode"
+    }
+    
+    @objc func mainButtonUp() {
+        blobView.setOnTap(isTap: false)
+    }
+    
+    @objc func mainButtonDown() {
+        blobView.setOnTap(isTap: true)
     }
     
     @objc func profileUpdate() {
@@ -77,7 +87,6 @@ class MainViewController: RootViewController {
     }
     
     func vpnStateChanged(status: NEVPNStatus) {
-        self.currentStatus = status
         switch status {
         case .connected:
             print("MainVC connected")
@@ -97,22 +106,47 @@ class MainViewController: RootViewController {
             }
             
         case .disconnected:
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.setLoadState(isLoading: false)
-                self.setState(activate: false)
-                self.timer?.invalidate()
-                self.timer = nil
-            }
+            self.setLoadState(isLoading: false)
+            self.setState(activate: false)
+            self.timer?.invalidate()
+            self.timer = nil
             
+            if shouldForceConnect {
+                shouldForceConnect = false
+                MatreshkaHelper.shared.connectVPN()
+            }
         case .connecting, .disconnecting:
             setLoadState(isLoading: true)
         default :
             setLoadState(isLoading: false)
         }
+        
+        switch status {
+        case .connected:
+            self.statusLabel.changeText(text: "CONNECTED".localized)
+            self.ioButton.setImageTintColor(UIColor(hex: "#36FA24FF")!)
+            self.blobView.state = .connected
+        case .disconnected:
+            self.statusLabel.changeText(text: "DISCONNECTED".localized)
+            self.ioButton.setImageTintColor(UIColor(hex: "#9077FFFF")!)
+            self.blobView.state = .disconnected
+        case .connecting:
+            self.statusLabel.changeText(text: "CONNECTING".localized)
+            self.ioButton.setImageTintColor(UIColor(hex: "#9077FF55")!)
+            self.blobView.state = .loading
+        case .disconnecting:
+            self.statusLabel.changeText(text: "DISCONNECTING".localized)
+            self.ioButton.setImageTintColor(UIColor(hex: "#9077FF55")!)
+            self.blobView.state = .loading
+        default :
+            self.statusLabel.changeText(text: "DISCONNECTED".localized)
+            self.ioButton.setImageTintColor(UIColor(hex: "#9077FFFF")!)
+            self.blobView.state = .disconnected
+        }
     }
     
     func getDataUsage() {
-        if currentStatus != .connected {
+        if WWVPNManager.shared.status != .connected {
             self.downloadLabel.text = Units(bytes: 0).getReadableUnit()
             self.uploadLabel.text = Units(bytes: 0).getReadableUnit()
         } else {
@@ -128,7 +162,7 @@ class MainViewController: RootViewController {
                 self.uploadLabel.text = Units(bytes: upload).getReadableUnit()
                 
                 if SwiftRater.isRateDone == false {
-                    if download > 1024 * 100 {
+                    if download > 1024 * 1024 {
                         SwiftRater.check(host: self)
                     }
                 }
@@ -136,15 +170,27 @@ class MainViewController: RootViewController {
         }
     }
     
+    var shouldForceConnect = false
+    
     @objc func selectedServerChanged(_ notification: Notification) {
-        guard let serverId = notification.object as? String else { return }
+        guard let onStart = notification.object as? Bool else { return }
+        
+        let serverId = MatreshkaHelper.shared.selectedServerId
         guard let server = MatreshkaHelper.shared.serversList.first(where: {$0.id?.description == serverId}) else { return }
         
         mainLabel.text = server.country
         secondLabel.text = server.city
         flagImageView.image = UIImage(named: server.countryCode ?? "")
         
-        FirebaseAnalytics.Analytics.logEvent("click_country", parameters: ["vpn_country": server.country ?? ""])
+        if !onStart {
+            FirebaseAnalytics.Analytics.logEvent("click_country", parameters: ["vpn_country": server.country ?? ""])
+            if WWVPNManager.shared.status == .connected {
+                MatreshkaHelper.shared.disconnectVPN() {
+                    self.shouldForceConnect = true
+                }
+                MatreshkaHelper.shared.sendDataUsage(true)
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -163,86 +209,37 @@ class MainViewController: RootViewController {
     
     
     @objc func currentServerChange() {
-        if currentStatus == .connected {
-            mainAction()
-        } else {
-            performSegue(withIdentifier: "servers", sender: nil)
-        }
+        performSegue(withIdentifier: "servers", sender: nil)
     }
     
     
     @IBAction func mainAction() {
         
-        if !MatreshkaHelper.shared.isSubscriptionActive() && currentStatus != .connected {
+        if !MatreshkaHelper.shared.isSubscriptionActive() && WWVPNManager.shared.status != .connected {
             self.tabBarController?.selectedIndex = 1
             return
         }
-        switch currentStatus {
-        case .disconnected, .invalid, .none:
+        switch WWVPNManager.shared.status {
+        case .disconnected, .invalid:
             MatreshkaHelper.shared.connectVPN()
         case .connected:
             MatreshkaHelper.shared.disconnectVPN()
             MatreshkaHelper.shared.sendDataUsage(true)
-        case .some(_):
+            setLoadState(isLoading: true)
+        default:
             break
         }
-        //setLoadState(isLoading: true)
     }
-    
     // UI Animations
     
     func setLoadState(isLoading: Bool) {
-        UIView.animate(withDuration: 0.15, delay: 0.0) {
-            self.onOffIcon.tintColor = isLoading ? .systemBlue : self.onOffIcon.tintColor
-        }
+        print(#function, isLoading)
         
-        UIView.animate(withDuration: 0.2, delay: 0.05) {
-            self.secondCircle.tintColor = isLoading ? .systemBlue : self.onOffIcon.tintColor
-        }
-        
-        UIView.animate(withDuration: 0.25, delay: 0.1) {
-            self.firstCircle.tintColor = isLoading ? .systemBlue : self.onOffIcon.tintColor
-        }
-        
-        if isLoading {
-            UIView.animate(withDuration: 0.3, delay: 0.00, options: [.repeat, .autoreverse, .curveEaseInOut]) {
-                self.onOffIcon.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
-            }
-            
-            UIView.animate(withDuration: 0.3, delay: 0.04, options: [.repeat, .autoreverse, .curveEaseInOut]) {
-                self.secondCircle.transform = CGAffineTransform(scaleX: 0.90, y: 0.90)
-            }
-            
-            UIView.animate(withDuration: 0.3, delay: 0.11, options: [.repeat, .autoreverse, .curveEaseInOut]) {
-                self.firstCircle.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-            }
-        } else {
-            UIView.animate(withDuration: 0.3, delay: 0.00, options: [.curveEaseInOut, .beginFromCurrentState]) {
-                self.onOffIcon.transform = .identity
-            }
-            
-            UIView.animate(withDuration: 0.3, delay: 0.04, options: [.curveEaseInOut, .beginFromCurrentState]) {
-                self.secondCircle.transform = .identity
-            }
-            
-            UIView.animate(withDuration: 0.3, delay: 0.11, options: [.curveEaseInOut, .beginFromCurrentState]) {
-                self.firstCircle.transform =  .identity
-            }
-        }
     }
     
     
     func setState(activate: Bool) {
         
-        UIView.animate(withDuration: 0.1, delay: 0.0) {
-            self.onOffIcon.tintColor = activate ? .systemGreen : .systemRed
-        }
-        UIView.animate(withDuration: 0.1, delay: 0.1) {
-            self.secondCircle.tintColor = activate ? .systemGreen : .systemRed
-        }
-        UIView.animate(withDuration: 0.1, delay: 0.2) {
-            self.firstCircle.tintColor = activate ? .systemGreen : .systemRed
-        }
     }
     
     

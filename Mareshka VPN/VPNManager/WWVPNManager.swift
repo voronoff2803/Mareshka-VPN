@@ -89,19 +89,21 @@ final class WWVPNManager: NSObject {
         p.remoteIdentifier = config.server
         p.localIdentifier = config.server
         
-        loadProfile { _ in
+        loadProfile { error in
             self.manager.protocolConfiguration = p
 
+            if let error = error {
+                onError(error)
+            }
+//            let evaluationRule = NEEvaluateConnectionRule(matchDomains: TLDList.tlds,
+//                                                          andAction: NEEvaluateConnectionRuleAction.connectIfNeeded)
+//            evaluationRule.useDNSServers = ["8.8.8.8"]
+//            let onDemandRule = NEOnDemandRuleEvaluateConnection()
+//            onDemandRule.interfaceTypeMatch = NEOnDemandRuleInterfaceType.any
+//            onDemandRule.connectionRules = [evaluationRule]
             
-            //let evaluationRule = NEEvaluateConnectionRule(matchDomains: TLDList.tlds,
-            //                                              andAction: NEEvaluateConnectionRuleAction.connectIfNeeded)
-            //evaluationRule.useDNSServers = ["8.8.8.8"]
-            //let onDemandRule = NEOnDemandRuleEvaluateConnection()
-            //onDemandRule.interfaceTypeMatch = NEOnDemandRuleInterfaceType.any
-            //onDemandRule.connectionRules = [evaluationRule]
-            
-            //self.manager.onDemandRules = [onDemandRule]
             self.manager.isOnDemandEnabled = true
+            self.manager.onDemandRules = [NEOnDemandRuleConnect()]
                 
             self.manager.isEnabled = true
             self.saveProfile { error in
@@ -114,22 +116,23 @@ final class WWVPNManager: NSObject {
                         onError(error)
                         return
                     }
-                    self.startVPNTunnel()
+                    self.startVPNTunnel() { error in
+                        onError(error)
+                    }
                 }
             }
         }
     }
-    private func startVPNTunnel() -> Bool {
+    
+    private func startVPNTunnel(onError: @escaping (String) -> Void) {
         do {
             try self.manager.connection.startVPNTunnel()
-            return true
         } catch NEVPNError.configurationInvalid {
-            NSLog("Failed to start tunnel (configuration invalid)")
+            onError("Failed to start tunnel (configuration invalid)")
         } catch NEVPNError.configurationDisabled {
-            NSLog("Failed to start tunnel (configuration disabled)")
+            onError("Failed to start tunnel (configuration disabled)")
         } catch {
-            NSLog("Failed to start tunnel (other error)")
+            onError("Failed to start tunnel (other error)")
         }
-        return false
     }
 }

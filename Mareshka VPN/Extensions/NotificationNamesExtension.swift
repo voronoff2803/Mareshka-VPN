@@ -20,4 +20,8 @@ extension Notification.Name {
     static var menuCellsUpdate: Notification.Name {
         return .init(rawValue: "MenuCellsUpdate")
     }
+    
+    static var successPurchase: Notification.Name {
+        return .init(rawValue: "SuccessPurchase")
+    }
 }

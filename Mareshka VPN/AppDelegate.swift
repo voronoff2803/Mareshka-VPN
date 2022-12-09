@@ -102,6 +102,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         FirebaseAnalytics.Analytics.logEvent("app_close", parameters: nil)
     }
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        if let incomingURL = userActivity.webpageURL {
+            let components = URLComponents(url: incomingURL, resolvingAgainstBaseURL: false)
+            let queryItems = components?.queryItems
+            
+            if queryItems?.contains(where: {$0.name == "order_id"}) == true {
+                NotificationCenter.default.post(name: .successPurchase, object: nil)
+                
+                FirebaseAnalytics.Analytics.logEvent("purchase", parameters: [
+                    "product_id": queryItems?.first(where: {$0.name == "product_id"})?.value ?? "",
+                    "payment_type": queryItems?.first(where: {$0.name == "payment_type"})?.value ?? "",
+                    "product_name": queryItems?.first(where: {$0.name == "product_name"})?.value ?? "",
+                    "revenue": queryItems?.first(where: {$0.name == "revenue"})?.value ?? "",
+                    "currency": queryItems?.first(where: {$0.name == "currency"})?.value ?? "",
+                    "promocode": queryItems?.first(where: {$0.name == "promocode"})?.value ?? "",
+                    "order_id": queryItems?.first(where: {$0.name == "order_id"})?.value ?? "",
+                    "refferal_value": queryItems?.first(where: {$0.name == "refferal_value"})?.value ?? ""])
+            }
+        }
+        
+        return true
+    }
 }
 
 
