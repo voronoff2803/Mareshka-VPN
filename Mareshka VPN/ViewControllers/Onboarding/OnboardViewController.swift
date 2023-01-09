@@ -15,6 +15,7 @@ final public class OnboardViewController: UIViewController {
     private let pageItems: [InfoScreenDTO]
     private let appearanceConfiguration: AppearanceConfiguration
     private let completion: (() -> Void)?
+    let closeButton = UIButton(type: .system)
     
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -34,6 +35,8 @@ final public class OnboardViewController: UIViewController {
         self.appearanceConfiguration = appearanceConfiguration
         self.completion = completion
         super.init(nibName: nil, bundle: nil)
+        
+        
     }
     
     override public var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -58,6 +61,21 @@ final public class OnboardViewController: UIViewController {
         addChild(pageViewController)
         view.addSubview(pageViewController.view)
         pageViewController.didMove(toParent: self)
+        
+        closeButton.setImage(UIImage(named: "close"), for: .normal)
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(closeButton)
+        
+        NSLayoutConstraint.activate([
+            closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            closeButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -20),
+        ])
+        
+        closeButton.addTarget(self, action: #selector(closeTapped), for: .touchUpInside)
+    }
+    
+    @objc fileprivate func closeTapped() {
+        self.dismiss(animated: true)
     }
     
     private func pageViwControllerFor(pageIndex: Int) -> OnboardPageViewController? {

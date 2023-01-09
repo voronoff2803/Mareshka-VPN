@@ -50,22 +50,12 @@ internal final class OnboardPageViewController: UIViewController {
         webView.isOpaque = false
         webView.backgroundColor = UIColor.clear
         view = webView
-        
-        
-        
-//        NSLayoutConstraint.activate([
-//          titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//          titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16.0),
-//          pageStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16.0),
-//          pageStackView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-//          pageStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-//          pageStackView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor)
-//          ])
     }
+    
+    
     
     func configureWithPage(_ page: InfoScreenDTO) {
         pageContent = page
-        print("hahahahah")
         webView.loadHTMLString(pageContent?.content ?? "", baseURL: nil)
     }
     
