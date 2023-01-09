@@ -30,6 +30,10 @@ class TabViewController: UITabBarController {
         super.viewDidLoad()
     
         MatreshkaHelper.shared.tabBarVC = self
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+            self.showOnBoard()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -43,5 +47,14 @@ class TabViewController: UITabBarController {
         let qrAuthController = storyboard.instantiateViewController(withIdentifier: "QRAuthViewController") as! QRAuthViewController
         
         self.present(qrAuthController, animated: true)
+    }
+    
+    func showOnBoard() {
+        MatreshkaHelper.shared.getInfoScreens { screens in
+            if !screens.isEmpty {
+                let onboardingViewController = OnboardViewController(pageItems: screens)
+                onboardingViewController.presentFrom(self, animated: true)
+            }
+        }
     }
 }

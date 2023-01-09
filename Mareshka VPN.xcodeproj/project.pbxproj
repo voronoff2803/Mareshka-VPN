@@ -174,6 +174,14 @@
 		0D7B3F962868BEEE009F8AA8 /* InformationLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7B3F952868BEEE009F8AA8 /* InformationLayout.swift */; };
 		0D7B3F982868C2CF009F8AA8 /* PanelSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7B3F972868C2CF009F8AA8 /* PanelSubscriptionViewController.swift */; };
 		0D7B406C286B39E1009F8AA8 /* InAppPurchase in Frameworks */ = {isa = PBXBuildFile; productRef = 0D7B406B286B39E1009F8AA8 /* InAppPurchase */; };
+		0D805CA5296C9A6900DD8934 /* GetInfoScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D805CA2296C9A6900DD8934 /* GetInfoScreens.swift */; };
+		0D805CA6296C9A6900DD8934 /* ViewInfoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D805CA3296C9A6900DD8934 /* ViewInfoScreen.swift */; };
+		0D805CA7296C9A6900DD8934 /* GetInfoScreensAnonymousUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D805CA4296C9A6900DD8934 /* GetInfoScreensAnonymousUser.swift */; };
+		0D805CA9296C9C4B00DD8934 /* InfoScreenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D805CA8296C9C4B00DD8934 /* InfoScreenDTO.swift */; };
+		0D805CAB296C9CA200DD8934 /* ViewInfoScreenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D805CAA296C9CA200DD8934 /* ViewInfoScreenRequest.swift */; };
+		0D805CAD296CC6DB00DD8934 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D805CAC296CC6DA00DD8934 /* OnboardViewController.swift */; };
+		0D805CAF296CC6FC00DD8934 /* OnboardPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D805CAE296CC6FC00DD8934 /* OnboardPage.swift */; };
+		0D805CB1296CC74000DD8934 /* OnboardPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D805CB0296CC74000DD8934 /* OnboardPageViewController.swift */; };
 		0D81D0BA28F9742500AB33D3 /* QrAuthDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D81D0B928F9742500AB33D3 /* QrAuthDTO.swift */; };
 		0D81D0BC28F9746000AB33D3 /* SubmitQrAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D81D0BB28F9746000AB33D3 /* SubmitQrAuth.swift */; };
 		0D81D0BE28F974CF00AB33D3 /* SubmitQrAuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D81D0BD28F974CF00AB33D3 /* SubmitQrAuthRequest.swift */; };
@@ -405,6 +413,14 @@
 		0D7B3F902868BDB0009F8AA8 /* SubscriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
 		0D7B3F952868BEEE009F8AA8 /* InformationLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationLayout.swift; sourceTree = "<group>"; };
 		0D7B3F972868C2CF009F8AA8 /* PanelSubscriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelSubscriptionViewController.swift; sourceTree = "<group>"; };
+		0D805CA2296C9A6900DD8934 /* GetInfoScreens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetInfoScreens.swift; sourceTree = "<group>"; };
+		0D805CA3296C9A6900DD8934 /* ViewInfoScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewInfoScreen.swift; sourceTree = "<group>"; };
+		0D805CA4296C9A6900DD8934 /* GetInfoScreensAnonymousUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetInfoScreensAnonymousUser.swift; sourceTree = "<group>"; };
+		0D805CA8296C9C4B00DD8934 /* InfoScreenDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoScreenDTO.swift; path = "Mareshka VPN/generated/Sources/Models/InfoScreenDTO.swift"; sourceTree = SOURCE_ROOT; };
+		0D805CAA296C9CA200DD8934 /* ViewInfoScreenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewInfoScreenRequest.swift; path = "Mareshka VPN/generated/Sources/Models/ViewInfoScreenRequest.swift"; sourceTree = SOURCE_ROOT; };
+		0D805CAC296CC6DA00DD8934 /* OnboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
+		0D805CAE296CC6FC00DD8934 /* OnboardPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardPage.swift; sourceTree = "<group>"; };
+		0D805CB0296CC74000DD8934 /* OnboardPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardPageViewController.swift; sourceTree = "<group>"; };
 		0D81D0B928F9742500AB33D3 /* QrAuthDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QrAuthDTO.swift; sourceTree = "<group>"; };
 		0D81D0BB28F9746000AB33D3 /* SubmitQrAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitQrAuth.swift; sourceTree = "<group>"; };
 		0D81D0BD28F974CF00AB33D3 /* SubmitQrAuthRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitQrAuthRequest.swift; sourceTree = "<group>"; };
@@ -523,6 +539,7 @@
 		0D1E2D782863D2B4005966F0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				0D805CB2296CC7DD00DD8934 /* Onboarding */,
 				0D7B3F972868C2CF009F8AA8 /* PanelSubscriptionViewController.swift */,
 				0DFBA68128F9842C001A6149 /* QRCodeViewController.swift */,
 				0D7B3F902868BDB0009F8AA8 /* SubscriptionViewController.swift */,
@@ -572,6 +589,8 @@
 		0D78D87A28B94DAD0027EF53 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0D805CAA296C9CA200DD8934 /* ViewInfoScreenRequest.swift */,
+				0D805CA8296C9C4B00DD8934 /* InfoScreenDTO.swift */,
 				0D137BE72942AA4D007CA1C9 /* CleanDevicesRequest.swift */,
 				0D81D0BD28F974CF00AB33D3 /* SubmitQrAuthRequest.swift */,
 				0D81D0B928F9742500AB33D3 /* QrAuthDTO.swift */,
@@ -651,6 +670,7 @@
 		0D78D8C228B94DAD0027EF53 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				0D805CA1296C9A6900DD8934 /* InfoScreenAPI */,
 				0D78D8C728B94DAD0027EF53 /* AppleAPI */,
 				0D78D8D628B94DAD0027EF53 /* BillingAPIV2 */,
 				0D78D8DC28B94DAD0027EF53 /* ReviewAPI */,
@@ -812,6 +832,27 @@
 				0D78DA1E28BFD4D10027EF53 /* SplashAnimator.swift */,
 			);
 			path = SplashScreen;
+			sourceTree = "<group>";
+		};
+		0D805CA1296C9A6900DD8934 /* InfoScreenAPI */ = {
+			isa = PBXGroup;
+			children = (
+				0D805CA2296C9A6900DD8934 /* GetInfoScreens.swift */,
+				0D805CA3296C9A6900DD8934 /* ViewInfoScreen.swift */,
+				0D805CA4296C9A6900DD8934 /* GetInfoScreensAnonymousUser.swift */,
+			);
+			name = InfoScreenAPI;
+			path = "Mareshka VPN/generated/Sources/Requests/InfoScreenAPI";
+			sourceTree = SOURCE_ROOT;
+		};
+		0D805CB2296CC7DD00DD8934 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				0D805CB0296CC74000DD8934 /* OnboardPageViewController.swift */,
+				0D805CAE296CC6FC00DD8934 /* OnboardPage.swift */,
+				0D805CAC296CC6DA00DD8934 /* OnboardViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		0DAC8CC828C6A3D7000FB341 /* TestMac */ = {
@@ -1132,6 +1173,7 @@
 				0DFF3908287B82D400CFBB11 /* UIAlertControlller+windowPresent.swift in Sources */,
 				0D7B3F8D28688DBC009F8AA8 /* LocalisableLabel.swift in Sources */,
 				0D78D96F28B94DAD0027EF53 /* RobokassaProceedRequest.swift in Sources */,
+				0D805CAD296CC6DB00DD8934 /* OnboardViewController.swift in Sources */,
 				0D7B3F7D286519FD009F8AA8 /* EmailFieldBulletinPage.swift in Sources */,
 				0D78D9F528B94DAD0027EF53 /* Coding.swift in Sources */,
 				0D78D9A928B94DAD0027EF53 /* GetMe.swift in Sources */,
@@ -1162,6 +1204,7 @@
 				0D137BE82942AA4D007CA1C9 /* CleanDevicesRequest.swift in Sources */,
 				0D8A083A28A2DD4E00D159C4 /* PaymentSelectBulletinPage.swift in Sources */,
 				0D78D97028B94DAD0027EF53 /* CreateTariffRequest.swift in Sources */,
+				0D805CB1296CC74000DD8934 /* OnboardPageViewController.swift in Sources */,
 				0D78D99328B94DAD0027EF53 /* WebHook.swift in Sources */,
 				0DFF372428798A2C00CFBB11 /* BonusTariffView.swift in Sources */,
 				0D78D9D828B94DAD0027EF53 /* GetBonusTariffs1.swift in Sources */,
@@ -1201,6 +1244,7 @@
 				0DC2809A2881F7390059E33E /* MButton.swift in Sources */,
 				0D78D95928B94DAD0027EF53 /* DashboardDataResponse.swift in Sources */,
 				0DC1B222285FA5BA00C7A7D5 /* MainViewController.swift in Sources */,
+				0D805CAB296C9CA200DD8934 /* ViewInfoScreenRequest.swift in Sources */,
 				0D78D95F28B94DAD0027EF53 /* UserTokenDTO.swift in Sources */,
 				0D78D9AC28B94DAD0027EF53 /* RemoveUserToken.swift in Sources */,
 				0D78D9EE28B94DAD0027EF53 /* GetRobokassaInvoiceId.swift in Sources */,
@@ -1220,10 +1264,13 @@
 				0D78D95628B94DAD0027EF53 /* PageResponseWithdrawDTO.swift in Sources */,
 				0D78D98128B94DAD0027EF53 /* EditSystemDataRequest.swift in Sources */,
 				0D78D9B928B94DAD0027EF53 /* UpdateServerStatus.swift in Sources */,
+				0D805CA9296C9C4B00DD8934 /* InfoScreenDTO.swift in Sources */,
+				0D805CAF296CC6FC00DD8934 /* OnboardPage.swift in Sources */,
 				0D78D96128B94DAD0027EF53 /* RobokassaResultRequest.swift in Sources */,
 				0D78D98F28B94DAD0027EF53 /* APIClientError.swift in Sources */,
 				0D78D95E28B94DAD0027EF53 /* AppleHookRequest.swift in Sources */,
 				0D78D94728B94DAD0027EF53 /* APIService.swift in Sources */,
+				0D805CA7296C9A6900DD8934 /* GetInfoScreensAnonymousUser.swift in Sources */,
 				0DC1B20E285F972F00C7A7D5 /* String+Localized.swift in Sources */,
 				0D78D97728B94DAD0027EF53 /* UserDTO.swift in Sources */,
 				0D78DA2228BFEEEC0027EF53 /* UILabel+change.swift in Sources */,
@@ -1258,6 +1305,7 @@
 				0D78D97528B94DAD0027EF53 /* SendPushToAllRequest.swift in Sources */,
 				0D78D98728B94DAD0027EF53 /* AdminAuthRequest.swift in Sources */,
 				0D1E2D772863D23E005966F0 /* SwiftLoader.swift in Sources */,
+				0D805CA6296C9A6900DD8934 /* ViewInfoScreen.swift in Sources */,
 				0D78D98628B94DAD0027EF53 /* ServiceErrorResponse.swift in Sources */,
 				0D78D98528B94DAD0027EF53 /* UpdateLogDTO.swift in Sources */,
 				0D78D98328B94DAD0027EF53 /* UserStatisticItem.swift in Sources */,
@@ -1285,6 +1333,7 @@
 				0D1E2D822863D6C6005966F0 /* ProfileViewController.swift in Sources */,
 				0D78D95328B94DAD0027EF53 /* EmailVerificationDTO.swift in Sources */,
 				0D78D96728B94DAD0027EF53 /* BeanFactory.swift in Sources */,
+				0D805CA5296C9A6900DD8934 /* GetInfoScreens.swift in Sources */,
 				0D78D96028B94DAD0027EF53 /* SendPushToUserRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

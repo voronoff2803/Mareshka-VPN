@@ -617,6 +617,30 @@ class MatreshkaHelper {
         }
     }
     
+    func getInfoScreens(completion: @escaping ([InfoScreenDTO]) -> ()) {
+        if isAnonymousUser {
+            let deviceId = getUUID() ?? UIDevice.current.identifierForVendor?.uuidString ?? ""
+            api.makeRequest(MatreshkaAPI.InfoScreenAPI.GetInfoScreensAnonymousUser.Request(deviceId: deviceId)) { response in
+                switch response.result {
+                case .success(let res):
+                    completion(res.success ?? [])
+                case .failure(let error):
+                    self.showError(error: error, data: response.data)
+                }
+            }
+        } else {
+            api.makeRequest(MatreshkaAPI.InfoScreenAPI.GetInfoScreens.Request()) { response in
+                switch response.result {
+                case .success(let res):
+                    print(res)
+                    completion(res.success ?? [])
+                case .failure(let error):
+                    self.showError(error: error, data: response.data)
+                }
+            }
+        }
+    }
+    
     func showError(error: APIClientError, data: Data?) {
         guard let data = data,
               let json = try? JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [String: Any],

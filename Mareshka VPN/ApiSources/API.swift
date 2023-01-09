@@ -22,6 +22,7 @@ public struct MatreshkaAPI {
     public static let version = "1.0"
 
     public enum AbstractAPI {}
+    public enum AdminInfoScreenAPI {}
     public enum AdminPushAPI {}
     public enum AdminReviewAPI {}
     public enum AdminServerAPI {}
@@ -30,6 +31,7 @@ public struct MatreshkaAPI {
     public enum AdminTariffAPI {}
     public enum AdminTariffAPIV2 {}
     public enum AdminTicketAPI {}
+    public enum AdminTopicAPI {}
     public enum AdminUpdateAPI {}
     public enum AdminUserAPI {}
     public enum AdminWithdrawAPI {}
@@ -38,6 +40,7 @@ public struct MatreshkaAPI {
     public enum AuthAPI {}
     public enum BillingAPI {}
     public enum BillingAPIV2 {}
+    public enum InfoScreenAPI {}
     public enum ReviewAPI {}
     public enum ServerAPI {}
     public enum SubscriptionAPI {}
